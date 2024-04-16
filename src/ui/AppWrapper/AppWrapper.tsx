@@ -7,7 +7,7 @@ interface AppWrapperProps {
 }
 
 function AppWrapper({ children }: AppWrapperProps) {
-  return <div className={styles.AppWrapper}>{children}</div>;
+  return <div className={styles.appWrapper}>{children}</div>;
 }
 
 export default AppWrapper;

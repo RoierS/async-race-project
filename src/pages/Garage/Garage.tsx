@@ -1,5 +1,7 @@
+import styles from "./Garage.module.css";
+
 function Garage() {
-  return <div>Garage</div>;
+  return <section className={styles.garage}>Garage</section>;
 }
 
 export default Garage;

@@ -5,8 +5,6 @@ import Winners from "@pages/Winners/Winners";
 
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import "./App.css";
-
 function App() {
   return (
     <BrowserRouter>
