@@ -1,0 +1,15 @@
+.title {
+  font-family: "AsyncFont", sans-serif;
+  font-size: 36px;
+  line-height: 1.2;
+  color: var(--vanilla);
+  text-transform: uppercase;
+}
+
+.text {
+  font-family: "Mostwasted", sans-serif;
+  font-size: 36px;
+  line-height: 1.2;
+  color: var(--rich-black);
+  text-transform: uppercase;
+}
