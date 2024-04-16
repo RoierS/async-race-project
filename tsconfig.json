@@ -8,11 +8,16 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
       "@constants/*": ["src/constants/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@store/*": ["src/store/*"],
+      "@ui/*": ["src/ui/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@common/*": ["src/common/*"]
     },
 
     /* Bundler mode */
