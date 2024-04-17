@@ -1,0 +1,9 @@
+.createCar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: start;
+  gap: 15px;
+  width: 100%;
+}
