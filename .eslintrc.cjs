@@ -25,6 +25,7 @@ module.exports = {
     "import/no-extraneous-dependencies": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/require-default-props": "off",
     "max-lines-per-function": ["error", 40],
     "no-magic-numbers": ["error", { ignore: [-1, 0, 1] }],
     "import/order": [

@@ -35,6 +35,18 @@
     rgba(157, 163, 177, 0.4) 55%,
     rgba(136, 170, 177, 0.4) 100%
   );
+
+  --shadow-color: 5px -1px 24px -5px rgba(66, 68, 90, 1);
+  --button-background-color: linear-gradient(
+    to bottom,
+    #d7d6d6 6%,
+    #9d969d 100%
+  );
+  --button-background-color-hover: linear-gradient(
+    to bottom,
+    #978f97 8%,
+    #c3bfbf 100%
+  );
 }
 
 * {
