@@ -18,3 +18,7 @@
   position: relative;
   top: 1px;
 }
+
+.button.medium {
+  min-width: 126px;
+}

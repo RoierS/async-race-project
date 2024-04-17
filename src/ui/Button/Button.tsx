@@ -22,7 +22,7 @@ function Button({
   type = "button",
   className,
   purpose = "primary",
-  size = "medium",
+  size = "small",
 }: ButtonProps) {
   const buttonClassName = classNames(
     styles.button,

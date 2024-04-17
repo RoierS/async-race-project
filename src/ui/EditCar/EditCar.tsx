@@ -11,7 +11,7 @@ function EditCar() {
     <form className={styles.editCar}>
       <input className={styles.nameInput} type="text" placeholder="Car Name" />
       <input className={styles.colorInput} type="color" />
-      <Button type="button" onClick={handleClick}>
+      <Button type="button" onClick={handleClick} size="medium">
         Update
       </Button>
     </form>
