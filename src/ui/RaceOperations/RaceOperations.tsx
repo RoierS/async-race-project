@@ -1,17 +1,29 @@
+import Button from "@ui/Button/Button";
+
 import styles from "./RaceOperations.module.css";
 
 function RaceOperations() {
+  const handleRace = () => {
+    // TODO: implement race logic
+  };
+  const handleRaceReset = () => {
+    // TODO: implement reset logic
+  };
+  const handleGenereCars = () => {
+    // TODO: implement generate cars logic
+  };
+
   return (
-    <div className={styles.formContainer}>
-      <button type="button" className={styles.race}>
+    <div className={styles.raceOperations}>
+      <Button type="button" onClick={handleRace}>
         Race
-      </button>
-      <button type="button" className={styles.reset}>
+      </Button>
+      <Button type="button" onClick={handleRaceReset}>
         Reset
-      </button>
-      <button type="button" className={styles.generate}>
+      </Button>
+      <Button type="button" onClick={handleGenereCars}>
         Generate cars
-      </button>
+      </Button>
     </div>
   );
 }
