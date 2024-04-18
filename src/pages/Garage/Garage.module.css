@@ -4,5 +4,5 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: stretch;
-  background-color: rgba(165, 42, 42, 0.379);
+  background: var(--garage-bg);
 }

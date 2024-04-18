@@ -17,25 +17,28 @@
 
 :root {
   --color-light: rgb(242, 233, 228);
+  --color-ligh-1: rgba(242, 233, 228, 0.534);
   --rich-black: rgb(0, 18, 25);
   --midnight-green: rgb(0, 95, 115);
   --midnight-green-1: rgba(0, 96, 115, 0.512);
   --dark-cyan: rgb(10, 147, 150);
+  --dark-cyan-1: rgba(10, 148, 150, 0.563);
   --tiffany-blue: rgb(148, 210, 189);
+  --tiffany-blue-1: rgba(148, 210, 189, 0.538);
   --vanilla: rgb(233, 216, 166);
+  --vanilla-1: rgba(233, 216, 166, 0.503);
   --gamboge: rgb(238, 155, 0);
   --alloy-orange: rgb(202, 103, 2);
   --rust: rgb(187, 62, 3);
   --rufous: rgb(174, 32, 18);
   --auburn: rgb(155, 34, 38);
-
+  --garage-bg: rgba(4, 6, 10, 0.42);
   --form-block-bg-color: linear-gradient(
     90deg,
     rgba(201, 199, 232, 0.4) 0%,
     rgba(157, 163, 177, 0.4) 55%,
     rgba(136, 170, 177, 0.4) 100%
   );
-
   --shadow-color: 5px -1px 24px -5px rgba(66, 68, 90, 1);
   --button-background-color: linear-gradient(
     to bottom,
