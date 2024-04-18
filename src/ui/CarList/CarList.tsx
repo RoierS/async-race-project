@@ -1,18 +1,18 @@
+import CarBlock from "@ui/CarBlock/CarBlock";
+
 import styles from "./CarList.module.css";
 
 function CarList() {
   return (
-    <ul className={styles.carList}>
-      <li>
-        <div>car1</div>
-      </li>
-      <li>
-        <div>car2</div>
-      </li>
-      <li>
-        <div>car3</div>
-      </li>
-    </ul>
+    <div className={styles.carList}>
+      <CarBlock />
+      <CarBlock />
+      <CarBlock />
+      <CarBlock />
+      <CarBlock />
+      <CarBlock />
+      <CarBlock />
+    </div>
   );
 }
 

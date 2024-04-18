@@ -15,7 +15,7 @@ function RaceOperations() {
 
   return (
     <div className={styles.raceOperations}>
-      <Button type="button" onClick={handleRace}>
+      <Button type="button" onClick={handleRace} purpose="race">
         Race
       </Button>
       <Button type="button" onClick={handleRaceReset}>

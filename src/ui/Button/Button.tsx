@@ -6,13 +6,13 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick: () => void;
   disabled?: boolean;
-  type: ButtonType;
+  type?: ButtonType;
   className?: string;
   purpose?: Variant;
   size?: "small" | "medium" | "large";
 }
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "start" | "stop" | "race";
 type ButtonType = "button" | "submit" | "reset";
 
 function Button({

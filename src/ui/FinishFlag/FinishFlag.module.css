@@ -1,0 +1,7 @@
+.finishFlag {
+  position: absolute;
+  top: 70%;
+  right: 190px;
+  width: 66px;
+  transform: translateY(-50%);
+}

@@ -1,6 +1,5 @@
-export const defaultCarColor = "#000000";
-
-export const carSvg = `
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -12,13 +11,16 @@ export const carSvg = `
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     id="svg2"
     sodipodi:docname="sportscar-bw.svg"
+    inkscape:export-filename="C:\Users\Gerald\Pictures\sportscar-bw.png"
     viewBox="0 0 1055.1 349.62"
     inkscape:export-xdpi="90"
     version="1.1"
     inkscape:export-ydpi="90"
     inkscape:version="0.48.5 r10040"
   >
-  <defs id="defs4">
+  <defs
+      id="defs4"
+    >
     <linearGradient
         id="linearGradient3889"
         y2="348.08"
@@ -44,8 +46,10 @@ export const carSvg = `
           style="stop-color:#000000"
           offset="1"
       />
-    </linearGradient>
-  </defs>
+    </linearGradient
+    >
+  </defs
+  >
   <sodipodi:namedview
       id="base"
       fit-margin-left="40"
@@ -90,7 +94,8 @@ export const carSvg = `
         inkscape:connector-curvature="0"
         d="m419.85 80.554c-14.13 0.17352-28.251 0.78277-42.32 1.8278-24.126 1.792-48.149 6.0334-71.534 12.23-18.94 5.0186-37.177 12.501-55.251 20.066-27.66 11.578-81.209 38.668-81.209 38.668s-62.011 5.8771-92.782 10.567c-40.552 6.1804-81.625 11.192-120.87 23.139-23.554 7.171-71.034 26.315-77.309 32.387-5.7112 5.5268-3.6948 16.054-0.90048 33.862-3.0836 0.64786-5.0508 3.4723-4.5174 6.8225l3.7727 19.13c0.60167 3.7789 4.134 6.7625 7.9201 6.719 0.0103-0.00013 0.0209-0.00033 0.0312-0.0005l8.4843 32.432s0.5857 2.3006 1.4234 3.0403c0.84085 0.74248 3.1732 1.0436 3.1732 1.0436l76.319 5.7276c-0.15512-2.6763-0.36256-5.3627-0.59658-8.054 13.221 32.031 45.021 54.355 81.769 53.772 37.211-0.59031 68.571-24.492 80.441-57.564-0.15528 3.3503-0.44767 7.0132-0.97716 11.298 0 0 185.61-4.7239 278.42-7.3235 51.594-1.4451 157.33-4.1211 157.33-4.1211-0.34484-2.2502-0.57569-4.2421-0.78457-6.1133 10.033 36.581 43.791 63.188 83.472 62.559 36.159-0.57362 66.689-23.576 78.535-55.565 5.2394-0.51073 34.996-3.7829 51.318-13.878 14.958-9.2519 35.043-38.802 40.398-52.085 5.3547-13.283 7.5778-22.251 8.529-39.609 0.72883-13.299-18.887-31.307-18.876-47.175 0.006-8.1996 7.6932-23.344 7.6932-23.344s-25.401 6.2872-38.29 5.6393c-18.11-0.91026-52.749-13.29-52.749-13.29l-96.357-23.725s-79.847-19.854-120.62-24.371c-30.848-3.4173-62-5.0933-93.086-4.7115z"
     />
-  </g>
+  </g
+  >
   <g
       id="layer2"
       inkscape:label="car"
@@ -175,25 +180,37 @@ export const carSvg = `
         inkscape:connector-curvature="0"
         d="m651.18 232.69c-31.389 0.49797-56.445 26.339-55.947 57.729 0.0263 1.6563 0.12963 3.2835 0.29696 4.8998h0.71271c-0.0136-0.37797-0.0534-0.74867-0.0595-1.1284-0.48972-30.869 24.128-56.289 54.997-56.778 30.869-0.48972 56.289 24.157 56.778 55.026 0.0153 0.96823 0.004 1.9251-0.0297 2.8805h0.68302c0.22352-2.206 0.33294-4.4425 0.29696-6.7112-0.49798-31.389-26.339-56.415-57.729-55.917z"
     />
-  </g>
-  <metadata>
-    <rdf:RDF>
-      <cc:Work>
-        <dc:format>image/svg+xml</dc:format>
+  </g
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
         <dc:type
             rdf:resource="http://purl.org/dc/dcmitype/StillImage"
         />
         <cc:license
             rdf:resource="http://creativecommons.org/licenses/publicdomain/"
         />
-        <dc:publisher>
+        <dc:publisher
+          >
           <cc:Agent
               rdf:about="http://openclipart.org/"
             >
-            <dc:title>Openclipart</dc:title>
-          </cc:Agent>
-        </dc:publisher>
-      </cc:Work>
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+      </cc:Work
+      >
       <cc:License
           rdf:about="http://creativecommons.org/licenses/publicdomain/"
         >
@@ -206,7 +223,11 @@ export const carSvg = `
         <cc:permits
             rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
         />
-      </cc:License>
-    </rdf:RDF>
-  </metadata>
-</svg>`;
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>

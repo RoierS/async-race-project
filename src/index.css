@@ -40,6 +40,7 @@
     rgba(136, 170, 177, 0.4) 100%
   );
   --shadow-color: 5px -1px 24px -5px rgba(66, 68, 90, 1);
+  --text-shadow-color: 5px -1px 5px rgba(66, 68, 90, 1);
   --button-background-color: linear-gradient(
     to bottom,
     #d7d6d6 6%,
@@ -50,6 +51,40 @@
     #978f97 8%,
     #c3bfbf 100%
   );
+  --track-bg-color: linear-gradient(
+    90deg,
+    rgba(61, 60, 70, 1) 0%,
+    rgba(157, 163, 177, 1) 55%,
+    rgba(136, 170, 177, 1) 100%
+  );
+
+  --stop-car-bg-color: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  --stop-car-bg-color-hover: linear-gradient(
+    to bottom,
+    #f24437 5%,
+    #c62d1f 100%
+  );
+  --stop-car-shadow: 3px 4px 0px 0px #79251d;
+  --start-car-shadow: inset 0px 1px 0px 0px #87bb5c;
+  --start-car-bg-color: linear-gradient(to bottom, #7baf02 5%, #668f08 100%);
+  --start-car-bg-color-hover: linear-gradient(
+    to bottom,
+    #6d9808 5%,
+    #73a302 100%
+  );
+  --race-btn-bg-color-hover: linear-gradient(
+    to bottom,
+    oklch(0.5 0.2 240 / 0.95),
+    oklch(0.2 0.2 240 / 0.95)
+  );
+
+  --race-btn-bg-color: linear-gradient(
+    to bottom,
+    oklch(0.2 0.2 240 / 0.95),
+    oklch(0.5 0.2 240 / 0.95)
+  );
+
+  --border-fg-color: oklch(0.86 0.36 0);
 }
 
 * {
