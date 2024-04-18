@@ -5,4 +5,5 @@
   align-items: stretch;
   justify-content: stretch;
   background: var(--garage-bg);
+  padding: 0 15px;
 }
