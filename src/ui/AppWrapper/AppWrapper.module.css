@@ -3,13 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  background-image: linear-gradient(
-      rgba(49, 57, 62, 0.7),
-      rgba(45, 52, 57, 0.7)
-    ),
-    url("../../assets/images/asyncrace2.jpg");
-  background-size: cover;
-  background-position: center;
+  background: var(--wrapper-bg-color);
+  background: var(--wrapper-bg-gradient);
   min-height: 100vh;
 }

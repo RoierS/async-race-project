@@ -85,6 +85,17 @@
   );
 
   --border-fg-color: oklch(0.86 0.36 0);
+  --wrapper-bg-color: rgb(3, 5, 31);
+  --wrapper-bg-gradient: linear-gradient(
+    90deg,
+    rgba(3, 5, 31, 1) 0%,
+    rgba(101, 123, 147, 1) 50%,
+    rgba(8, 10, 51, 1) 100%
+  );
+  --header-gradient: linear-gradient(
+    rgba(49, 57, 62, 0.7),
+    rgba(45, 52, 57, 0.7)
+  );
 }
 
 * {

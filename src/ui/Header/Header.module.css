@@ -1,5 +1,8 @@
 .header {
-  background-color: var(--midnight-green-1);
+  background-image: var(--header-gradient),
+    url("../../assets/images/asyncrace2.jpg");
+  background-size: cover;
+  background-position: center;
   padding: 0px 20px 0px 20px;
   text-align: center;
   display: flex;
