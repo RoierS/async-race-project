@@ -17,7 +17,8 @@
       "@ui/*": ["src/ui/*"],
       "@hooks/*": ["src/hooks/*"],
       "@interfaces/*": ["src/interfaces/*"],
-      "@common/*": ["src/common/*"]
+      "@common/*": ["src/common/*"],
+      "@helpers/*": ["src/helpers/*"]
     },
 
     /* Bundler mode */

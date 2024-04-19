@@ -14,6 +14,7 @@ export default defineConfig({
       "@constants": path.resolve(__dirname, "./src/constants"),
       "@pages": path.resolve(__dirname, "./src/pages"),
       "@ui": path.resolve(__dirname, "./src/ui"),
+      "@helpers": path.resolve(__dirname, "./src/helpers"),
     },
   },
 });
