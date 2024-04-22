@@ -25,6 +25,10 @@ export async function updateCar(carId: number, car: Car): Promise<Car> {
   return data;
 }
 
+export async function deleteCar(carId: number) {
+  await request(`/garage/${carId}`, HttpMethod.DELETE);
+}
+
 export async function getTotalCarCount(): Promise<number> {
   try {
     const response = await fetch(`${BASE_URL}/garage?_limit=1`);
