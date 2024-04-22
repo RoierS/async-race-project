@@ -9,6 +9,11 @@ export async function getCars(page = 1, limit = CARS_PER_PAGE): Promise<Car[]> {
   return data;
 }
 
+export async function getCar(carId: number): Promise<Car> {
+  const data: Car = await request(`/garage/${carId}`);
+  return data;
+}
+
 export async function getTotalCarCount(): Promise<number> {
   try {
     const response = await fetch(`${BASE_URL}/garage?_limit=1`);
