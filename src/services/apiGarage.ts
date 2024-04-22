@@ -1,6 +1,7 @@
+import { HttpMethod, BASE_URL } from "@constants/constants";
 import { Car } from "@interfaces/Car";
 
-import { BASE_URL, HttpMethod, request } from "./apiRequest";
+import request from "./apiRequest";
 
 const CARS_PER_PAGE = 7;
 

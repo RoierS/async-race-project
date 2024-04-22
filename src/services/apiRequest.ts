@@ -1,19 +1,11 @@
-export const BASE_URL = "http://127.0.0.1:3000";
-
-export enum HttpMethod {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-  DELETE = "DELETE",
-  PATCH = "PATCH",
-}
+import { HttpMethod, BASE_URL } from "@constants/constants";
 
 const ErorrCodes = {
   TOO_MANY_REQUESTS_ERROR_CODE: 429,
   BROKEN_ENGINE_ERROR_CODE: 500,
 };
 
-export async function request<T>(
+export default async function request<T>(
   url: string,
   method: HttpMethod = HttpMethod.GET,
   body: object | null = null,

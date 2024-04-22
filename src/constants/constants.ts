@@ -1,3 +1,13 @@
+export const BASE_URL = "http://127.0.0.1:3000";
+
+export enum HttpMethod {
+  GET = "GET",
+  POST = "POST",
+  PUT = "PUT",
+  DELETE = "DELETE",
+  PATCH = "PATCH",
+}
+
 export const defaultCarColor = "#000000";
 
 export const carSvg = `
