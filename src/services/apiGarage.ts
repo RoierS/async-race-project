@@ -20,6 +20,11 @@ export async function createCar(car: Car): Promise<Car> {
   return data;
 }
 
+export async function updateCar(carId: number, car: Car): Promise<Car> {
+  const data: Car = await request(`/garage/${carId}`, HttpMethod.PUT, car);
+  return data;
+}
+
 export async function getTotalCarCount(): Promise<number> {
   try {
     const response = await fetch(`${BASE_URL}/garage?_limit=1`);
