@@ -16,42 +16,9 @@
   flex-direction: column;
 }
 
-.line {
-  position: absolute;
-  top: 90%;
-  left: 5px;
-  z-index: 40;
-  width: 99%;
-  border-bottom: 3px dashed #d4cbcb;
-}
-
-.controlBtns {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: nowrap;
-}
-
 .carImage {
   display: block;
   transform: scaleX(-1);
   width: 100%;
   max-width: 200px;
-}
-
-.track {
-  position: relative;
-  padding: 10px;
-  background: var(--track-bg-color);
-  box-shadow: var(--shadow-color);
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.carControls {
-  display: flex;
-  gap: 15px;
 }

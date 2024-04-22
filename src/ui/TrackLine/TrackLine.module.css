@@ -1,0 +1,8 @@
+.line {
+  position: absolute;
+  top: 90%;
+  left: 5px;
+  z-index: 40;
+  width: 99%;
+  border-bottom: 3px dashed #d4cbcb;
+}

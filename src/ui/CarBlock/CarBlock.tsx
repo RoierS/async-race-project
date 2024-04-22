@@ -4,7 +4,12 @@ import CarImage from "@assets/images/CarImage.svg?react";
 import { Car } from "@interfaces/Car";
 import Button from "@ui/Button/Button";
 
+import CarRaceControls from "@ui/CarRaceControls/CarRaceControls";
 import FinishFlag from "@ui/FinishFlag/FinishFlag";
+
+import Track from "@ui/Track/Track";
+
+import TrackLine from "@ui/TrackLine/TrackLine";
 
 import styles from "./CarBlock.module.css";
 
@@ -29,25 +34,24 @@ function CarBlock({ car }: CarBlockProps) {
   };
   return (
     <div className={styles.carBlock}>
-      <div className={styles.controlBtns}>
+      <CarRaceControls>
         <Button onClick={handleSelectCar}>Select 👆</Button>
         <Button onClick={handleRemoveCar}>Remove 🗑️</Button>
         <p className={styles.carName}>{name}</p>
-      </div>
-      <div className={styles.track}>
-        <div className={styles.carControls}>
+      </CarRaceControls>
+      <Track>
+        <CarRaceControls>
           <Button onClick={handleStart} purpose="start">
             Start
           </Button>
           <Button onClick={handleStop} purpose="stop">
             Stop
           </Button>
-        </div>
+        </CarRaceControls>
         <CarImage className={styles.carImage} fill={color} />
-
         <FinishFlag />
-        <div className={styles.line} />
-      </div>
+        <TrackLine />
+      </Track>
     </div>
   );
 }
