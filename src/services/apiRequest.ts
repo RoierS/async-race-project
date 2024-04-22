@@ -15,7 +15,7 @@ const ErorrCodes = {
 
 export async function request<T>(
   url: string,
-  method: string = HttpMethod.GET,
+  method: HttpMethod = HttpMethod.GET,
   body: object | null = null,
   signal: AbortSignal | null = null,
 ): Promise<T> {
