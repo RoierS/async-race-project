@@ -1,9 +1,10 @@
+/// <reference types="vite-plugin-svgr/client" />
+
+import CarImage from "@assets/images/CarImage.svg?react";
 import { Car } from "@interfaces/Car";
 import Button from "@ui/Button/Button";
 
 import FinishFlag from "@ui/FinishFlag/FinishFlag";
-
-import carImage from "../../../public/car-img.svg";
 
 import styles from "./CarBlock.module.css";
 
@@ -12,7 +13,7 @@ interface CarBlockProps {
 }
 
 function CarBlock({ car }: CarBlockProps) {
-  const { name } = car;
+  const { name, color } = car;
 
   const handleSelectCar = () => {
     // ToDo: select car
@@ -42,8 +43,8 @@ function CarBlock({ car }: CarBlockProps) {
             Stop
           </Button>
         </div>
-        <img className={styles.carImage} src={carImage} alt="car" />
-        {/* TODO: <div className={styles.carImage} id="car.id">{createCarImage(color)}</div> */}
+        <CarImage className={styles.carImage} fill={color} />
+
         <FinishFlag />
         <div className={styles.line} />
       </div>
