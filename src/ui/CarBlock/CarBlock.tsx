@@ -32,6 +32,7 @@ function CarBlock({ car }: CarBlockProps) {
   const handleStop = () => {
     // ToDo: stop
   };
+
   return (
     <div className={styles.carBlock}>
       <CarRaceControls>
