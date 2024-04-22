@@ -1,6 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 import CarImage from "@assets/images/CarImage.svg?react";
+import useDeleteCar from "@hooks/useDeleteCar";
 import { Car } from "@interfaces/Car";
 import Button from "@ui/Button/Button";
 
@@ -18,13 +19,14 @@ interface CarBlockProps {
 }
 
 function CarBlock({ car }: CarBlockProps) {
-  const { name, color } = car;
+  const { name, color, id } = car;
+  const { deleteExistingCar } = useDeleteCar();
 
   const handleSelectCar = () => {
     // ToDo: select car
   };
   const handleRemoveCar = () => {
-    // ToDo: remove car
+    if (id) deleteExistingCar(id);
   };
   const handleStart = () => {
     // ToDo: start
