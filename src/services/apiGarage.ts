@@ -1,6 +1,6 @@
 import { Car } from "@interfaces/Car";
 
-import { BASE_URL, request } from "./apiRequest";
+import { BASE_URL, HttpMethod, request } from "./apiRequest";
 
 const CARS_PER_PAGE = 7;
 
@@ -11,6 +11,11 @@ export async function getCars(page = 1, limit = CARS_PER_PAGE): Promise<Car[]> {
 
 export async function getCar(carId: number): Promise<Car> {
   const data: Car = await request(`/garage/${carId}`);
+  return data;
+}
+
+export async function createCar(car: Car): Promise<Car> {
+  const data: Car = await request(`/garage`, HttpMethod.POST, car);
   return data;
 }
 
