@@ -27,7 +27,7 @@ const toastOptions = {
     fontSize: "16px",
     maxWidth: "500px",
     padding: "16px 24px",
-    backgroundColor: "var(--color-ligh-1)",
+    background: "var(--button-background-color-hover)",
     color: "var(--rich-black)",
   },
 };
