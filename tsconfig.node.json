@@ -18,7 +18,8 @@
     "@pages/*": ["./pages/*"],
     "@store/*": ["./store/*"],
     "@ui/*": ["./ui/*"],
-    "@helpers/*": ["./helpers/*"]
+    "@helpers/*": ["./helpers/*"],
+    "@services/*": ["./services/*"]
   },
   "include": ["vite.config.ts"]
 }

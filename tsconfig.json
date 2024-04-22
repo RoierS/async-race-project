@@ -18,7 +18,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@common/*": ["src/common/*"],
-      "@helpers/*": ["src/helpers/*"]
+      "@helpers/*": ["src/helpers/*"],
+      "@services/*": ["src/services/*"]
     },
 
     /* Bundler mode */
