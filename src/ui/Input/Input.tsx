@@ -3,13 +3,18 @@ import classNames from "classnames";
 import styles from "./Input.module.css";
 
 interface InputProps {
-  type: string;
+  type?: "text" | "color";
   placeholder?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
 }
 
-function Input({ type = "text", placeholder, onChange, value }: InputProps) {
+function Input({
+  type = "text",
+  placeholder = "Car Name",
+  onChange,
+  value,
+}: InputProps) {
   const inputClass = classNames(styles.input, {
     [styles.textInput]: type === "text",
     [styles.colorInput]: type === "color",
