@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { HttpMethod, BASE_URL } from "@constants/constants";
 import { Car } from "@interfaces/Car";
 
@@ -41,7 +42,6 @@ export async function getTotalCarCount(): Promise<number> {
 
     return totalCount;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Failed to get total car count:", error);
     throw error;
   }
@@ -56,4 +56,30 @@ export async function startStopCarEngine(
     HttpMethod.PATCH,
   );
   return data;
+}
+
+interface SwitchToDriveModeOutput {
+  success: boolean;
+  error?: string;
+}
+
+export async function switchToDriveMode(
+  carId: number,
+  signal?: AbortSignal,
+): Promise<SwitchToDriveModeOutput> {
+  try {
+    const response = await request<SwitchToDriveModeOutput>(
+      `/engine?id=${carId}&status=drive`,
+      HttpMethod.PATCH,
+      null,
+      signal,
+    );
+    return response;
+  } catch (error) {
+    console.log("Car has been stopped suddenly. It's engine was broken down.");
+    return {
+      success: false,
+      error: "Car has been stopped suddenly. It's engine was broken down.",
+    };
+  }
 }

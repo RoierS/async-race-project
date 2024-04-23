@@ -3,7 +3,7 @@
 import CarImage from "@assets/images/CarImage.svg?react";
 import useDeleteCar from "@hooks/useDeleteCar";
 import { Car } from "@interfaces/Car";
-import { startStopCarEngine } from "@services/apiGarage";
+import { startStopCarEngine, switchToDriveMode } from "@services/apiGarage";
 import Button from "@ui/Button/Button";
 
 import CarRaceControls from "@ui/CarRaceControls/CarRaceControls";
@@ -20,23 +20,25 @@ interface CarBlockProps {
   onSelectCar: (car: Car) => void;
 }
 
+// eslint-disable-next-line max-lines-per-function
 function CarBlock({ car, onSelectCar }: CarBlockProps) {
   const { name, color, id } = car;
   const { deleteExistingCar } = useDeleteCar();
-
   const handleSelectCar = () => {
     onSelectCar(car);
   };
   const handleRemoveCar = () => {
     if (id) deleteExistingCar(id);
   };
-  const handleStart = () => {
-    if (id) startStopCarEngine(id, "started");
+  const handleStart = async () => {
+    if (id) {
+      await startStopCarEngine(id, "started");
+      await switchToDriveMode(id);
+    }
   };
   const handleStop = () => {
     // ToDo: stop
   };
-
   return (
     <div className={styles.carBlock}>
       <CarRaceControls>
