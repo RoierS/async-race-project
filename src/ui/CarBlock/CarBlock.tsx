@@ -16,14 +16,15 @@ import styles from "./CarBlock.module.css";
 
 interface CarBlockProps {
   car: Car;
+  onSelectCar: (car: Car) => void;
 }
 
-function CarBlock({ car }: CarBlockProps) {
+function CarBlock({ car, onSelectCar }: CarBlockProps) {
   const { name, color, id } = car;
   const { deleteExistingCar } = useDeleteCar();
 
   const handleSelectCar = () => {
-    // ToDo: select car
+    onSelectCar(car);
   };
   const handleRemoveCar = () => {
     if (id) deleteExistingCar(id);
