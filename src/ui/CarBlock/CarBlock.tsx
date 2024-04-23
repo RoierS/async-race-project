@@ -3,6 +3,7 @@
 import CarImage from "@assets/images/CarImage.svg?react";
 import useDeleteCar from "@hooks/useDeleteCar";
 import { Car } from "@interfaces/Car";
+import { startStopCarEngine } from "@services/apiGarage";
 import Button from "@ui/Button/Button";
 
 import CarRaceControls from "@ui/CarRaceControls/CarRaceControls";
@@ -30,7 +31,7 @@ function CarBlock({ car, onSelectCar }: CarBlockProps) {
     if (id) deleteExistingCar(id);
   };
   const handleStart = () => {
-    // ToDo: start
+    if (id) startStopCarEngine(id, "started");
   };
   const handleStop = () => {
     // ToDo: stop

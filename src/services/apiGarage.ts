@@ -46,3 +46,14 @@ export async function getTotalCarCount(): Promise<number> {
     throw error;
   }
 }
+
+export async function startStopCarEngine(
+  carId: number,
+  status: "started" | "stopped",
+) {
+  const data = await request<{ velocity: number; distance: number }>(
+    `/engine?id=${carId}&status=${status}`,
+    HttpMethod.PATCH,
+  );
+  return data;
+}
