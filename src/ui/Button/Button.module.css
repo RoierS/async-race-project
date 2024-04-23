@@ -37,7 +37,7 @@
 .start {
   color: var(--color-light);
   text-shadow: 0px 0.5px 0px var(--color-ligh-1);
-
+  margin-right: 15px;
   border-radius: 1rem;
   animation: spinAnimation 2.5s infinite linear paused;
   background:

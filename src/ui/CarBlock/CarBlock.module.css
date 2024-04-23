@@ -15,10 +15,3 @@
   row-gap: 10px;
   flex-direction: column;
 }
-
-.carImage {
-  display: block;
-  transform: scaleX(-1);
-  width: 100%;
-  max-width: 200px;
-}

@@ -1,11 +1,12 @@
-/// <reference types="vite-plugin-svgr/client" />
+import { useRef, useState } from "react";
 
-import CarImage from "@assets/images/CarImage.svg?react";
+import { defaultCarColor } from "@constants/constants";
+import startAnimation from "@helpers/startAnimation";
 import useDeleteCar from "@hooks/useDeleteCar";
 import { Car } from "@interfaces/Car";
-import { startStopCarEngine, switchToDriveMode } from "@services/apiGarage";
 import Button from "@ui/Button/Button";
 
+import CarImageWrapper from "@ui/CarImageWrapper/CarImageWrapper";
 import CarRaceControls from "@ui/CarRaceControls/CarRaceControls";
 import FinishFlag from "@ui/FinishFlag/FinishFlag";
 
@@ -20,43 +21,39 @@ interface CarBlockProps {
   onSelectCar: (car: Car) => void;
 }
 
-// eslint-disable-next-line max-lines-per-function
 function CarBlock({ car, onSelectCar }: CarBlockProps) {
-  const { name, color, id } = car;
+  const { color = defaultCarColor, name, id } = car;
   const { deleteExistingCar } = useDeleteCar();
-  const handleSelectCar = () => {
-    onSelectCar(car);
-  };
-  const handleRemoveCar = () => {
-    if (id) deleteExistingCar(id);
-  };
+  const [animationInProgress, setAnimationInProgress] = useState(false);
+  const carImageRef = useRef<HTMLImageElement | null>(null);
+  const flagImageRef = useRef<HTMLImageElement | null>(null);
   const handleStart = async () => {
-    if (id) {
-      await startStopCarEngine(id, "started");
-      await switchToDriveMode(id);
+    if (!animationInProgress && id) {
+      setAnimationInProgress(true);
+      const controller = new AbortController();
+      await startAnimation({
+        id,
+        signal: controller.signal,
+        carImageRef,
+        flagImageRef,
+        setAnimationInProgress,
+      });
     }
-  };
-  const handleStop = () => {
-    // ToDo: stop
   };
   return (
     <div className={styles.carBlock}>
       <CarRaceControls>
-        <Button onClick={handleSelectCar}>Select 👆</Button>
-        <Button onClick={handleRemoveCar}>Remove 🗑️</Button>
+        <Button onClick={() => onSelectCar(car)}>Select 👆</Button>
+        <Button onClick={() => id && deleteExistingCar(id)}>Remove 🗑️</Button>
         <p className={styles.carName}>{name}</p>
       </CarRaceControls>
       <Track>
-        <CarRaceControls>
-          <Button onClick={handleStart} purpose="start">
-            Start
-          </Button>
-          <Button onClick={handleStop} purpose="stop">
-            Stop
-          </Button>
-        </CarRaceControls>
-        <CarImage className={styles.carImage} fill={color} />
-        <FinishFlag />
+        <Button onClick={handleStart} purpose="start">
+          Start
+        </Button>
+        <Button purpose="stop">Stop</Button>
+        <CarImageWrapper carImageRef={carImageRef} color={color} />
+        <FinishFlag flagRef={flagImageRef} />
         <TrackLine />
       </Track>
     </div>

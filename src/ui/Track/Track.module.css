@@ -4,7 +4,4 @@
   background: var(--track-bg-color);
   box-shadow: var(--shadow-color);
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }

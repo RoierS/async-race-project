@@ -1,8 +1,15 @@
+import { RefObject } from "react";
+
 import styles from "./FinishFlag.module.css";
 
-function FinishFlag() {
+function FinishFlag({ flagRef }: { flagRef: RefObject<HTMLImageElement> }) {
   return (
-    <img className={styles.finishFlag} src="/flag-icon.svg" alt="finish flag" />
+    <img
+      ref={flagRef}
+      className={styles.finishFlag}
+      src="/flag-icon.svg"
+      alt="finish flag"
+    />
   );
 }
 
