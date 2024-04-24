@@ -76,6 +76,13 @@ export async function switchToDriveMode(
     );
     return response;
   } catch (error) {
+    if (error instanceof DOMException && error.name === "AbortError") {
+      console.log("Request was aborted");
+      return {
+        success: false,
+        error: "Request was aborted",
+      };
+    }
     console.log("Car has been stopped suddenly. It's engine was broken down.");
     return {
       success: false,

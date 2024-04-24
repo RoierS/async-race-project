@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import { defaultCarColor } from "@constants/constants";
-import startAnimation from "@helpers/startAnimation";
+import useCarAnimation from "@hooks/useCarAnimation";
 import useDeleteCar from "@hooks/useDeleteCar";
 import { Car } from "@interfaces/Car";
 import Button from "@ui/Button/Button";
@@ -24,36 +24,34 @@ interface CarBlockProps {
 function CarBlock({ car, onSelectCar }: CarBlockProps) {
   const { color = defaultCarColor, name, id } = car;
   const { deleteExistingCar } = useDeleteCar();
-  const [animationInProgress, setAnimationInProgress] = useState(false);
-  const carImageRef = useRef<HTMLImageElement | null>(null);
-  const flagImageRef = useRef<HTMLImageElement | null>(null);
-  const handleStart = async () => {
-    if (!animationInProgress && id) {
-      setAnimationInProgress(true);
-      const controller = new AbortController();
-      await startAnimation({
-        id,
-        signal: controller.signal,
-        carImageRef,
-        flagImageRef,
-        setAnimationInProgress,
-      });
-    }
-  };
+  const carRef = useRef<HTMLImageElement | null>(null);
+  const flagRef = useRef<HTMLImageElement | null>(null);
+  const { isAnimating, startAnimation, stopAnimation } = useCarAnimation();
+  const handleStart = () => id && startAnimation({ id, carRef, flagRef });
+  const handleStop = () => id && stopAnimation({ id, carRef, flagRef });
   return (
     <div className={styles.carBlock}>
       <CarRaceControls>
-        <Button onClick={() => onSelectCar(car)}>Select 👆</Button>
-        <Button onClick={() => id && deleteExistingCar(id)}>Remove 🗑️</Button>
+        <Button onClick={() => onSelectCar(car)} disabled={isAnimating}>
+          Select 👆
+        </Button>
+        <Button
+          onClick={() => id && deleteExistingCar(id)}
+          disabled={isAnimating}
+        >
+          Remove 🗑️
+        </Button>
         <p className={styles.carName}>{name}</p>
       </CarRaceControls>
       <Track>
-        <Button onClick={handleStart} purpose="start">
+        <Button onClick={handleStart} purpose="start" disabled={isAnimating}>
           Start
         </Button>
-        <Button purpose="stop">Stop</Button>
-        <CarImageWrapper carImageRef={carImageRef} color={color} />
-        <FinishFlag flagRef={flagImageRef} />
+        <Button onClick={handleStop} purpose="stop" disabled={!isAnimating}>
+          Stop
+        </Button>
+        <CarImageWrapper carImageRef={carRef} color={color} />
+        <FinishFlag flagRef={flagRef} />
         <TrackLine />
       </Track>
     </div>
