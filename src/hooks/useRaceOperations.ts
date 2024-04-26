@@ -1,8 +1,8 @@
-/* eslint-disable max-lines-per-function */
 import { FAILED } from "@constants/constants";
 
 import { useRace } from "@context/RaceContext";
 
+import convertTimeToSeconds from "@helpers/convertToSeconds";
 import {
   createWinner,
   getAllWinners,
@@ -12,6 +12,7 @@ import {
 import useCarAnimation from "./useCarAnimation";
 import useCars from "./useCars";
 
+/* eslint-disable max-lines-per-function */
 const useRaceOperations = () => {
   const { startAnimation, stopAnimation } = useCarAnimation();
   const { carRefs, isRace, setIsRace } = useRace();
@@ -26,13 +27,13 @@ const useRaceOperations = () => {
     );
     const winnerId = Object.keys(carRefs.current)[winnerIndex];
     const winnerCar = cars?.find((car) => car.id === +winnerId);
+    const winnerTime = convertTimeToSeconds(animationTimes[winnerIndex]);
     if (winnerCar) {
       const winnerData = {
         name: winnerCar.name,
         id: winnerCar.id,
         color: winnerCar.color,
-        // eslint-disable-next-line no-magic-numbers
-        time: +(animationTimes[winnerIndex] / 1000).toFixed(2),
+        time: winnerTime,
         wins: 1,
       };
       const winners = await getAllWinners();
@@ -42,11 +43,9 @@ const useRaceOperations = () => {
       if (existingWinner) {
         const updatedWinner = {
           ...existingWinner,
-          wins: existingWinner.wins && +1,
+          wins: existingWinner.wins + 1,
           time:
-            existingWinner.time > animationTimes[winnerIndex]
-              ? existingWinner.time
-              : animationTimes[winnerIndex],
+            existingWinner.time > winnerTime ? existingWinner.time : winnerTime,
         };
         await updateWinner(winnerData.id, updatedWinner);
       } else {
