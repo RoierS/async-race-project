@@ -2,6 +2,8 @@ export const BASE_URL = "http://127.0.0.1:3000";
 
 export const DIST = 60;
 
+export const FAILED = -1;
+
 export enum HttpMethod {
   GET = "GET",
   POST = "POST",
