@@ -18,6 +18,7 @@ export default defineConfig({
       "@helpers": path.resolve(__dirname, "./src/helpers"),
       "@services": path.resolve(__dirname, "./src/services"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
+      "@context": path.resolve(__dirname, "./src/context"),
     },
   },
 });

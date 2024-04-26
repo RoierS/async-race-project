@@ -1,12 +1,11 @@
 interface IResetCarPosition {
-  carRef: React.RefObject<HTMLImageElement>;
-  flagRef: React.RefObject<HTMLImageElement>;
+  currentCar: HTMLImageElement;
+  currentFlag: HTMLImageElement;
 }
 
-const resetCarPosition = ({ carRef, flagRef }: IResetCarPosition) => {
-  if (carRef.current && flagRef.current) {
-    const carImage = carRef.current;
-
+const resetCarPosition = ({ currentCar, currentFlag }: IResetCarPosition) => {
+  if (currentCar && currentFlag) {
+    const carImage = currentCar;
     carImage.style.transform = `translateX(0px) scaleX(-1)`;
   }
 };

@@ -1,3 +1,4 @@
+import RaceProvider from "@context/RaceContext";
 import AppLayout from "@pages/AppLayout/AppLayout";
 import Garage from "@pages/Garage/Garage";
 import PageNotFound from "@pages/PageNotFound/PageNotFound";
@@ -34,26 +35,28 @@ const toastOptions = {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route index element={<Navigate replace to="garage" />} />
-            <Route path="garage" element={<Garage />} />
-            <Route path="winners" element={<Winners />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+    <RaceProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="garage" />} />
+              <Route path="garage" element={<Garage />} />
+              <Route path="winners" element={<Winners />} />
+            </Route>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
 
-      <Toaster
-        position="top-center"
-        gutter={12}
-        containerStyle={{ margin: "8px" }}
-        toastOptions={toastOptions}
-      />
-    </QueryClientProvider>
+        <Toaster
+          position="top-center"
+          gutter={12}
+          containerStyle={{ margin: "8px" }}
+          toastOptions={toastOptions}
+        />
+      </QueryClientProvider>
+    </RaceProvider>
   );
 }
 

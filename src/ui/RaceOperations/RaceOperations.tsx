@@ -1,27 +1,37 @@
+import { useRace } from "@context/RaceContext";
+import useCarAnimation from "@hooks/useCarAnimation";
 import Button from "@ui/Button/Button";
 
 import styles from "./RaceOperations.module.css";
 
 function RaceOperations() {
+  const { startAnimation, stopAnimation } = useCarAnimation();
+  const { carRefs, isRace, setIsRace } = useRace();
+
   const handleRace = () => {
-    // TODO: implement race logic
+    setIsRace(true);
+    Object.entries(carRefs.current).forEach(([id]) => {
+      startAnimation(parseInt(id, 10));
+    });
   };
   const handleRaceReset = () => {
-    // TODO: implement reset logic
+    setIsRace(false);
+    Object.entries(carRefs.current).forEach(([id]) => {
+      stopAnimation(parseInt(id, 10));
+    });
   };
   const handleGenereCars = () => {
     // TODO: implement generate cars logic
   };
-
   return (
     <div className={styles.raceOperations}>
-      <Button type="button" onClick={handleRace} purpose="race">
+      <Button onClick={handleRace} purpose="race" disabled={isRace}>
         Race
       </Button>
-      <Button type="button" onClick={handleRaceReset}>
+      <Button onClick={handleRaceReset} disabled={!isRace}>
         Reset
       </Button>
-      <Button type="button" onClick={handleGenereCars}>
+      <Button onClick={handleGenereCars} disabled={isRace}>
         Generate cars
       </Button>
     </div>
