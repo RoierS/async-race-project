@@ -3,7 +3,12 @@ import { Car } from "@interfaces/Car";
 
 import request from "./apiRequest";
 
-export async function getWinners(page: number, limit: number) {
+export async function getAllWinners() {
+  const data: Car[] = await request(`/winners`);
+  return data;
+}
+
+export async function getWinnersOnPage(page: number, limit: number) {
   const data: Car[] = await request(`/winners?_page=${page}&_limit=${limit}`);
   return data;
 }
