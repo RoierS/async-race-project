@@ -1,10 +1,13 @@
 /* eslint-disable max-lines-per-function */
-
 import { FAILED } from "@constants/constants";
 
 import { useRace } from "@context/RaceContext";
 
-import { createWinner, getAllWinners } from "@services/apiWinners";
+import {
+  createWinner,
+  getAllWinners,
+  updateWinner,
+} from "@services/apiWinners";
 
 import useCarAnimation from "./useCarAnimation";
 import useCars from "./useCars";
@@ -45,9 +48,7 @@ const useRaceOperations = () => {
               ? existingWinner.time
               : animationTimes[winnerIndex],
         };
-        // eslint-disable-next-line no-console
-        console.log(updatedWinner);
-        // TODO: update winner
+        await updateWinner(winnerData.id, updatedWinner);
       } else {
         createWinner(winnerData);
       }

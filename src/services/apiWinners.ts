@@ -22,3 +22,16 @@ export async function createWinner(newWinner: Car) {
   const data: Car = await request(`/winners`, HttpMethod.POST, newWinner);
   return data;
 }
+
+export async function updateWinner(
+  id: number,
+  winnerData: { wins: number; time: number },
+): Promise<Car> {
+  const data: Car = await request(
+    `/winners/${id}`,
+    HttpMethod.PATCH,
+    winnerData,
+  );
+
+  return data;
+}
