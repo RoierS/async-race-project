@@ -12,3 +12,8 @@ export async function getWinner(id: number) {
   const data: Car = await request(`/winners/${id}`, HttpMethod.GET);
   return data;
 }
+
+export async function createWinner(newWinner: Car) {
+  const data: Car = await request(`/winners`, HttpMethod.POST, newWinner);
+  return data;
+}
