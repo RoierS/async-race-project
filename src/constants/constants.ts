@@ -6,6 +6,8 @@ export const FAILED = -1;
 
 export const NUMS_OF_CARS = 100;
 
+export const PAGE_SIZE = 7;
+
 export enum HttpMethod {
   GET = "GET",
   POST = "POST",

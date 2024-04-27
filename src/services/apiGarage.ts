@@ -1,12 +1,16 @@
 /* eslint-disable no-console */
-import { HttpMethod, BASE_URL } from "@constants/constants";
+import { HttpMethod, BASE_URL, PAGE_SIZE } from "@constants/constants";
 import { Car } from "@interfaces/Car";
 
 import request from "./apiRequest";
 
-const CARS_PER_PAGE = 7;
-
-export async function getCars(page = 1, limit = CARS_PER_PAGE): Promise<Car[]> {
+export async function getCars({
+  page,
+  limit = PAGE_SIZE,
+}: {
+  page: number;
+  limit?: number;
+}): Promise<Car[]> {
   const data: Car[] = await request(`/garage?_page=${page}&_limit=${limit}`);
   return data;
 }
