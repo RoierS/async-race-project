@@ -7,12 +7,10 @@ const useCreateCar = () => {
 
   const { isPending: isCreating, mutate: createNewCar } = useMutation({
     mutationFn: createCar,
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["cars"],
-      });
+    onSuccess: (data) => {
+      queryClient.invalidateQueries();
 
-      toast.success("New car created!");
+      toast.success(`Car ${data.name} created!`);
     },
 
     onError: (err) => toast.error(err.message),

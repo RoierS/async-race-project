@@ -1,8 +1,11 @@
+import useTotalCars from "@hooks/useTotalCars";
 import Button from "@ui/Button/Button";
 
 import styles from "./Pagination.module.css";
 
 function Pagination() {
+  const { carsCount } = useTotalCars();
+
   const handleNextClick = () => {
     // TODO
   };
@@ -20,7 +23,7 @@ function Pagination() {
         Page: <span className={styles.currentNumber}> #1</span>
       </p>
       <p className={styles.carsCount}>
-        Garage: <span className={styles.currentNumber}>303</span>
+        Garage: <span className={styles.currentNumber}>{carsCount}</span>
       </p>
       <Button type="button" onClick={handleNextClick}>
         Next

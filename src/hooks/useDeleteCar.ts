@@ -8,9 +8,7 @@ const useDeleteCabin = () => {
   const { isPending: isDeleting, mutate: deleteExistingCar } = useMutation({
     mutationFn: deleteCar,
     onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["cars"],
-      });
+      queryClient.invalidateQueries();
 
       toast.success("Car deleted");
     },
