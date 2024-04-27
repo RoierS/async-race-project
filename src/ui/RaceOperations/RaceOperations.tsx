@@ -1,3 +1,4 @@
+import useCreateRandomCars from "@hooks/useCreateRabdomCars";
 import useRaceOperations from "@hooks/useRaceOperations";
 import Button from "@ui/Button/Button";
 
@@ -5,10 +6,7 @@ import styles from "./RaceOperations.module.css";
 
 function RaceOperations() {
   const { handleRace, handleRaceReset, isRace } = useRaceOperations();
-
-  const handleGenereCars = () => {
-    // TODO: implement generate cars logic
-  };
+  const { createRandomCars, isPending } = useCreateRandomCars();
 
   return (
     <div className={styles.raceOperations}>
@@ -18,7 +16,7 @@ function RaceOperations() {
       <Button onClick={handleRaceReset} disabled={!isRace}>
         Reset
       </Button>
-      <Button onClick={handleGenereCars} disabled={isRace}>
+      <Button onClick={createRandomCars} disabled={isRace || isPending}>
         Generate cars
       </Button>
     </div>

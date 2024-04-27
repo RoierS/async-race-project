@@ -4,6 +4,8 @@ export const DIST = 60;
 
 export const FAILED = -1;
 
+export const NUMS_OF_CARS = 100;
+
 export enum HttpMethod {
   GET = "GET",
   POST = "POST",
