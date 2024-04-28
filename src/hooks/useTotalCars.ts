@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 const useTotalCars = () => {
   const {
     isLoading,
-    data: carsCount,
+    data: carsCount = 0,
     error,
   } = useQuery({
     queryKey: ["cars-count"],

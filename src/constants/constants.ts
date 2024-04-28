@@ -8,6 +8,8 @@ export const NUMS_OF_CARS = 100;
 
 export const PAGE_SIZE = 7;
 
+export const WINNERS_PAGE_SIZE = 10;
+
 export enum HttpMethod {
   GET = "GET",
   POST = "POST",

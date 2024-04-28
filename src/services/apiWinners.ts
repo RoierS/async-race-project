@@ -1,4 +1,4 @@
-import { BASE_URL, HttpMethod } from "@constants/constants";
+import { BASE_URL, HttpMethod, WINNERS_PAGE_SIZE } from "@constants/constants";
 import { Car } from "@interfaces/Car";
 
 import request from "./apiRequest";
@@ -8,7 +8,13 @@ export async function getAllWinners() {
   return data;
 }
 
-export async function getWinnersOnPage(page: number, limit: number) {
+export async function getWinners({
+  page,
+  limit = WINNERS_PAGE_SIZE,
+}: {
+  page: number;
+  limit?: number;
+}) {
   const data: Car[] = await request(`/winners?_page=${page}&_limit=${limit}`);
   return data;
 }
