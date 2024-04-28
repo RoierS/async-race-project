@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import useTotalCars from "@hooks/useTotalCars";
 import { Car } from "@interfaces/Car";
 import CarBlock from "@ui/CarBlock/CarBlock";
 import CarList from "@ui/CarList/CarList";
@@ -14,6 +15,7 @@ import styles from "./Garage.module.css";
 
 function Garage() {
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
+  const { carsCount = 0 } = useTotalCars();
 
   const handleCarSelect = (car: Car) => {
     setSelectedCar(car);
@@ -29,7 +31,7 @@ function Garage() {
         <RaceOperations />
       </ManageGarage>
 
-      <Pagination />
+      <Pagination count={carsCount} />
 
       <CarList
         render={(car: Car) => (

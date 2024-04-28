@@ -1,4 +1,4 @@
-import { HttpMethod } from "@constants/constants";
+import { BASE_URL, HttpMethod } from "@constants/constants";
 import { Car } from "@interfaces/Car";
 
 import request from "./apiRequest";
@@ -34,4 +34,10 @@ export async function updateWinner(
   );
 
   return data;
+}
+
+export async function getTotalWinnersCount() {
+  const response = await fetch(`${BASE_URL}/winners?_limit=1`);
+  const totalCountHeader = response.headers.get("X-Total-Count");
+  return totalCountHeader ? parseInt(totalCountHeader, 10) : 0;
 }
