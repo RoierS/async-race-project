@@ -1,6 +1,8 @@
 import { BASE_URL, HttpMethod, WINNERS_PAGE_SIZE } from "@constants/constants";
 import { Car } from "@interfaces/Car";
 
+import { SortBy, Order } from "@interfaces/types";
+
 import request from "./apiRequest";
 
 export async function getAllWinners() {
@@ -8,14 +10,22 @@ export async function getAllWinners() {
   return data;
 }
 
+interface WinnersProps {
+  page: number;
+  limit?: number;
+  sort?: SortBy;
+  order?: Order;
+}
+
 export async function getWinners({
   page,
   limit = WINNERS_PAGE_SIZE,
-}: {
-  page: number;
-  limit?: number;
-}) {
-  const data: Car[] = await request(`/winners?_page=${page}&_limit=${limit}`);
+  sort = "wins",
+  order = "DESC",
+}: WinnersProps) {
+  const data: Car[] = await request(
+    `/winners?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`,
+  );
   return data;
 }
 

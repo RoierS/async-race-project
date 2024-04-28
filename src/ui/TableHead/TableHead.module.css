@@ -17,6 +17,15 @@
   border-radius: 10px 0 0 0;
 }
 
-.theadCell:last-child {
+.theadCellSort:last-child {
   border-radius: 0 10px 0 0;
+}
+
+.theadCellSort {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.theadCellSort:hover {
+  color: var(--light-black);
 }
