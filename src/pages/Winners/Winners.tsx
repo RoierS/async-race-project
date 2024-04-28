@@ -1,17 +1,13 @@
 import useTotalWinners from "@hooks/useTotalWinners";
-import useWinners from "@hooks/useWinners";
-import PageTitle from "@ui/PageTitle/PageTitle";
 
+import PageTitle from "@ui/PageTitle/PageTitle";
 import Pagination from "@ui/Pagination/Pagination";
+import WinnersTable from "@ui/WinnersTable/WinnersTable";
 
 import styles from "./Winners.module.css";
 
 function Winners() {
   const { winnersCount } = useTotalWinners();
-  const { winners } = useWinners();
-
-  // eslint-disable-next-line no-console
-  console.log(winners);
 
   return (
     <section className={styles.winners}>
@@ -19,9 +15,7 @@ function Winners() {
 
       <Pagination count={winnersCount} />
 
-      <div>Winners Table</div>
-
-      {/* TODO add table */}
+      <WinnersTable />
     </section>
   );
 }

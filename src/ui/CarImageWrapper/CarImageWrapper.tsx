@@ -7,7 +7,7 @@ import CarImage from "@assets/images/CarImage.svg?react";
 import styles from "./CarImageWrapper.module.css";
 
 interface CarImageWrapperProps {
-  carImageRef: RefObject<HTMLDivElement>;
+  carImageRef?: RefObject<HTMLDivElement>;
   color: string;
 }
 
