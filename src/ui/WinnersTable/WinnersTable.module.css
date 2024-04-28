@@ -1,0 +1,8 @@
+.winnersTable {
+  min-width: 400px;
+  border-collapse: collapse;
+  font-size: 1em;
+  font-family: "Serpentine", sans-serif;
+  box-shadow: 0 0 20px var(--shadow-color);
+  border-radius: 10px;
+}
