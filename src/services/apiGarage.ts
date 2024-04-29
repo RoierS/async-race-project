@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import { HttpMethod, BASE_URL, PAGE_SIZE } from "@constants/constants";
 import { Car } from "@interfaces/Car";
-import { INewCar } from "@interfaces/NewCar";
 
 import request from "./apiRequest";
 
@@ -21,7 +20,7 @@ export async function getCar(carId: number): Promise<Car> {
   return data;
 }
 
-export async function createCar(car: INewCar): Promise<Car> {
+export async function createCar(car: Car): Promise<Car> {
   const data: Car = await request(`/garage`, HttpMethod.POST, car);
   return data;
 }

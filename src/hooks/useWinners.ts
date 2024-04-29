@@ -1,4 +1,4 @@
-import { PAGE_SIZE } from "@constants/constants";
+import { WINNERS_PAGE_SIZE } from "@constants/constants";
 import { Order, SortBy } from "@interfaces/types";
 import { getWinners } from "@services/apiWinners";
 import {
@@ -29,7 +29,9 @@ const useWinners = () => {
     placeholderData: keepPreviousData,
   });
 
-  const pageCount = winnersCount ? Math.ceil(winnersCount / PAGE_SIZE) : 0;
+  const pageCount = winnersCount
+    ? Math.ceil(winnersCount / WINNERS_PAGE_SIZE)
+    : 0;
 
   if (page > 1) {
     queryClient.prefetchQuery({

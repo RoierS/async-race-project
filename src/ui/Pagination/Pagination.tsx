@@ -1,6 +1,5 @@
-/* eslint-disable max-lines-per-function */
-
-import { PAGE_SIZE } from "@constants/constants";
+import { PAGE_SIZE, WINNERS_PAGE_SIZE } from "@constants/constants";
+import usePagination from "@hooks/usePagination";
 import Button from "@ui/Button/Button";
 
 import { useLocation, useSearchParams } from "react-router-dom";
@@ -8,28 +7,16 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import styles from "./Pagination.module.css";
 
 function Pagination({ count }: { count: number }) {
-  const [searchParams, setSearchParams] = useSearchParams({});
-  const currentPage = Number(searchParams.get("page")) || 1;
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
   const isGarageView = location.pathname === "/garage";
 
-  const handleNext = () => {
-    const nextPage =
-      currentPage === Math.ceil(count / PAGE_SIZE)
-        ? currentPage
-        : currentPage + 1;
-    searchParams.set("page", nextPage.toString());
-    setSearchParams(searchParams);
-  };
+  const { handleNext, handlePrev } = usePagination(count);
 
-  const handlePrev = () => {
-    const prevPage = currentPage === 1 ? currentPage : currentPage - 1;
-    searchParams.set("page", prevPage.toString());
-    setSearchParams(searchParams);
-  };
   return (
     <div className={styles.pagination}>
-      <Button onClick={handlePrev} disabled={currentPage === 1}>
+      <Button onClick={() => handlePrev()} disabled={currentPage === 1}>
         Prev
       </Button>
       <p className={styles.pageNumber}>
@@ -40,8 +27,11 @@ function Pagination({ count }: { count: number }) {
         <span className={styles.currentNumber}> {count}</span>
       </p>
       <Button
-        onClick={handleNext}
-        disabled={currentPage >= Math.ceil(count / PAGE_SIZE)}
+        onClick={() => handleNext()}
+        disabled={
+          currentPage >=
+          Math.ceil(count / (isGarageView ? PAGE_SIZE : WINNERS_PAGE_SIZE))
+        }
       >
         Next
       </Button>

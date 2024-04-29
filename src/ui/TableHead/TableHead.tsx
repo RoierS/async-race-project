@@ -6,12 +6,13 @@ import styles from "./TableHead.module.css";
 
 function TableHead() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get("page");
   const [sort, setSort] = useState(searchParams.get("sort"));
   const [order, setOrder] = useState(searchParams.get("order"));
 
   const handleSort = (sortName: string) => {
     const newOrder = sortName === sort && order === "asc" ? "desc" : "asc";
-    setSearchParams({ order: newOrder, sort: sortName });
+    setSearchParams({ page: page || "1", order: newOrder, sort: sortName });
     setSort(sortName);
     setOrder(newOrder);
   };

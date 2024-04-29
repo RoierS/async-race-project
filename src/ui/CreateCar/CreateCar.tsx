@@ -20,7 +20,7 @@ function CreateCar() {
   const handleCreateCar = (e: FormEvent) => {
     e.preventDefault();
     createNewCar(
-      { name, color },
+      { name, color, id: 0 },
       {
         onSuccess: () => {
           setName("");
