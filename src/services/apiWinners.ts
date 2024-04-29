@@ -39,6 +39,10 @@ export async function createWinner(newWinner: Car) {
   return data;
 }
 
+export async function deleteWinner(id: number) {
+  await request(`/winners/${id}`, HttpMethod.DELETE);
+}
+
 export async function updateWinner(
   id: number,
   winnerData: { wins: number; time: number },

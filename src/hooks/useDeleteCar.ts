@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
 
-const useDeleteCabin = () => {
+const useDeleteCar = () => {
   const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -45,4 +45,4 @@ const useDeleteCabin = () => {
   return { isDeleting, deleteExistingCar };
 };
 
-export default useDeleteCabin;
+export default useDeleteCar;
