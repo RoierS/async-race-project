@@ -23,7 +23,7 @@ interface CarBlockProps {
 function CarBlock({ car, onSelectCar }: CarBlockProps) {
   const { color = defaultCarColor, name, id } = car;
   const { carRefs, flagRefObj } = useRace();
-  const { deleteExistingCar } = useDeleteCar();
+  const { deleteExistingCar } = useDeleteCar(id);
   const { isRace, isAnimating, startAnimation, stopAnimation } =
     useCarAnimation();
   const carRef = useRef<HTMLImageElement | null>(null);

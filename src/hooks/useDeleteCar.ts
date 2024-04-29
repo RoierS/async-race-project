@@ -1,18 +1,19 @@
 import { PAGE_SIZE } from "@constants/constants";
 import { deleteCar, getCars, getTotalCarCount } from "@services/apiGarage";
+import { deleteWinner } from "@services/apiWinners";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
 
-const useDeleteCar = () => {
+const useDeleteCar = (id: number) => {
   const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { isPending: isDeleting, mutate: deleteExistingCar } = useMutation({
     mutationFn: deleteCar,
     onSuccess: async () => {
+      await deleteWinner(id);
       queryClient.invalidateQueries();
-
       const currentPage = Number(searchParams.get("page")) || 1;
       const carsCount = await queryClient.fetchQuery({
         queryKey: ["cars-count"],
@@ -26,7 +27,6 @@ const useDeleteCar = () => {
       ) {
         searchParams.set("page", String(currentPage - 1));
         setSearchParams(searchParams);
-
         queryClient.invalidateQueries({
           queryKey: ["cars", carsCount],
         });
@@ -36,10 +36,9 @@ const useDeleteCar = () => {
           queryFn: () => getCars({ page: currentPage - 1 }),
         });
       }
-
       toast.success("Car deleted");
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err) => toast.error(err.message || "Error deleting car"),
   });
 
   return { isDeleting, deleteExistingCar };
