@@ -8,13 +8,15 @@ import styles from "./WinnersTable.module.css";
 
 function WinnersTable() {
   return (
-    <table className={styles.winnersTable}>
-      <TableHead />
+    <div className={styles.winnersTableContainer}>
+      <table className={styles.winnersTable}>
+        <TableHead />
 
-      <TableBody
-        render={(winner: Car) => <TableRow winner={winner} key={winner.id} />}
-      />
-    </table>
+        <TableBody
+          render={(winner: Car) => <TableRow winner={winner} key={winner.id} />}
+        />
+      </table>
+    </div>
   );
 }
 

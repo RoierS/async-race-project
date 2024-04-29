@@ -1,4 +1,5 @@
-.cell {
+.cell,
+.cellImage {
   padding: 10px 13px;
   background: -webkit-linear-gradient(var(--color-light), var(--light-black));
   -webkit-background-clip: text;
@@ -18,4 +19,9 @@
 
 .row:hover {
   background-color: var(--midnight-green);
+}
+
+.cellImage {
+  width: 50px;
+  height: 50px;
 }

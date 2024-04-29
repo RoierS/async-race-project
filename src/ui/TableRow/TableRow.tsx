@@ -11,7 +11,7 @@ function TableRow({
   return (
     <tr className={styles.row}>
       <td className={styles.cell}>{id}</td>
-      <td className={styles.cell}>
+      <td className={styles.cellImage}>
         <CarImageWrapper color={color} aria-label={name} />
       </td>
       <td className={styles.cell}>{name}</td>
