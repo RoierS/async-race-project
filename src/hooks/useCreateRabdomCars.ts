@@ -13,7 +13,6 @@ const useCreateRandomCars = () => {
         createCar({
           name: generateRandomCarName(),
           color: generateRandomColor(),
-          id: 0,
           time: 0,
           wins: 0,
         }),

@@ -1,4 +1,4 @@
-import RaceProvider from "@context/RaceContext";
+import AppProvider from "@context/AppContext";
 import AppLayout from "@pages/AppLayout/AppLayout";
 import Garage from "@pages/Garage/Garage";
 import PageNotFound from "@pages/PageNotFound/PageNotFound";
@@ -35,10 +35,10 @@ const toastOptions = {
 
 function App() {
   return (
-    <RaceProvider>
-      <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <BrowserRouter>
+        <AppProvider>
           <Routes>
             <Route element={<AppLayout />}>
               <Route index element={<Navigate replace to="garage" />} />
@@ -47,16 +47,16 @@ function App() {
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-        </BrowserRouter>
+        </AppProvider>
+      </BrowserRouter>
 
-        <Toaster
-          position="top-center"
-          gutter={12}
-          containerStyle={{ margin: "8px" }}
-          toastOptions={toastOptions}
-        />
-      </QueryClientProvider>
-    </RaceProvider>
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={toastOptions}
+      />
+    </QueryClientProvider>
   );
 }
 

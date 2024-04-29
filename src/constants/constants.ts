@@ -10,6 +10,13 @@ export const PAGE_SIZE = 7;
 
 export const WINNERS_PAGE_SIZE = 10;
 
+export enum ActionTypes {
+  SELECT_CAR,
+  SET_PAGE,
+  IS_RACE,
+  IS_SINGLE_RACE,
+}
+
 export enum HttpMethod {
   GET = "GET",
   POST = "POST",

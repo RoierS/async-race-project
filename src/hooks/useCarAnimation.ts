@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 
 import { DIST, FAILED } from "@constants/constants";
-import { useRace } from "@context/RaceContext";
+import { useRace } from "@context/AppContext";
 import resetCarPosition from "@helpers/resetCarPosition";
 import { startStopCarEngine, switchToDriveMode } from "@services/apiGarage";
 

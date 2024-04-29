@@ -1,8 +1,8 @@
 /* eslint-disable max-lines-per-function */
 import { useEffect, useRef } from "react";
 
-import { defaultCarColor } from "@constants/constants";
-import { useRace } from "@context/RaceContext";
+import { ActionTypes, defaultCarColor } from "@constants/constants";
+import { useRace } from "@context/AppContext";
 import useCarAnimation from "@hooks/useCarAnimation";
 import useDeleteCar from "@hooks/useDeleteCar";
 import { Car } from "@interfaces/Car";
@@ -22,14 +22,19 @@ interface CarBlockProps {
 
 function CarBlock({ car, onSelectCar }: CarBlockProps) {
   const { color = defaultCarColor, name, id } = car;
-  const { carRefs, flagRefObj } = useRace();
+  const { carRefs, flagRefObj, isRace, dispatch } = useRace();
   const { deleteExistingCar } = useDeleteCar(id);
-  const { isRace, isAnimating, startAnimation, stopAnimation } =
-    useCarAnimation();
+  const { isAnimating, startAnimation, stopAnimation } = useCarAnimation();
   const carRef = useRef<HTMLImageElement | null>(null);
   const flagRef = useRef<HTMLImageElement | null>(null);
-  const handleStart = () => startAnimation(id);
-  const handleStop = () => stopAnimation(id);
+  const handleStart = () => {
+    dispatch({ type: ActionTypes.IS_SINGLE_RACE, payload: true });
+    startAnimation(id);
+  };
+  const handleStop = () => {
+    stopAnimation(id);
+    dispatch({ type: ActionTypes.IS_SINGLE_RACE, payload: false });
+  };
   const handleRemove = () => deleteExistingCar(id);
 
   useEffect(() => {
@@ -46,10 +51,13 @@ function CarBlock({ car, onSelectCar }: CarBlockProps) {
   return (
     <div className={styles.carBlock}>
       <CarRaceControls>
-        <Button onClick={() => onSelectCar(car)} disabled={isAnimating[id]}>
+        <Button
+          onClick={() => onSelectCar(car)}
+          disabled={isAnimating[id] || isRace}
+        >
           Select 👆
         </Button>
-        <Button onClick={handleRemove} disabled={isAnimating[id]}>
+        <Button onClick={handleRemove} disabled={isAnimating[id] || isRace}>
           Remove 🗑️
         </Button>
         <p className={styles.carName}>{name}</p>
@@ -62,7 +70,11 @@ function CarBlock({ car, onSelectCar }: CarBlockProps) {
         >
           Start
         </Button>
-        <Button onClick={handleStop} purpose="stop" disabled={!isAnimating[id]}>
+        <Button
+          onClick={handleStop}
+          purpose="stop"
+          disabled={!isAnimating[id] || isRace}
+        >
           Stop
         </Button>
         <CarImageWrapper carImageRef={carRef} color={color} />

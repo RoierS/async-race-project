@@ -1,6 +1,6 @@
 import { FAILED } from "@constants/constants";
 
-import { useRace } from "@context/RaceContext";
+import { useRace } from "@context/AppContext";
 
 import convertTimeToSeconds from "@helpers/convertToSeconds";
 
@@ -10,12 +10,11 @@ import useCreateWinner from "./useCreateWinner";
 
 const useRaceOperations = () => {
   const { startAnimation, stopAnimation } = useCarAnimation();
-  const { carRefs, isRace, setIsRace } = useRace();
+  const { carRefs } = useRace();
   const { cars } = useCars();
   const { createUpdateWinner } = useCreateWinner();
 
   const handleRace = async () => {
-    setIsRace(true);
     const animationTimes = await Promise.all(
       Object.keys(carRefs.current).map((id) => startAnimation(+id)),
     );
@@ -37,10 +36,9 @@ const useRaceOperations = () => {
     }
   };
   const handleRaceReset = () => {
-    setIsRace(false);
     Object.keys(carRefs.current).map((id) => stopAnimation(+id));
   };
-  return { handleRace, handleRaceReset, isRace };
+  return { handleRace, handleRaceReset };
 };
 
 export default useRaceOperations;
