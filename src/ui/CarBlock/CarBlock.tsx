@@ -1,5 +1,4 @@
 import { defaultCarColor } from "@constants/constants";
-import useCarAnimation from "@hooks/useCarAnimation";
 import { Car } from "@interfaces/Car";
 import Button from "@ui/Button/Button";
 import CarImageWrapper from "@ui/CarImageWrapper/CarImageWrapper";
@@ -18,7 +17,6 @@ interface CarBlockProps {
 
 function CarBlock({ car }: CarBlockProps) {
   const { color = defaultCarColor, name, id } = car;
-  const { isAnimating } = useCarAnimation();
   const {
     carRef,
     flagRef,
@@ -26,6 +24,7 @@ function CarBlock({ car }: CarBlockProps) {
     handleStop,
     handleRemove,
     handleSelectCar,
+    isAnimating,
     isRace,
   } = useCarBlock(car);
   const isDisabled = isAnimating[id] || isRace;

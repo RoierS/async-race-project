@@ -6,10 +6,11 @@ import useCarAnimation from "@hooks/useCarAnimation";
 import useDeleteCar from "@hooks/useDeleteCar";
 import { Car } from "@interfaces/Car";
 
+// eslint-disable-next-line max-lines-per-function
 const useCarBlock = ({ id }: { id: number }) => {
   const { carRefs, flagRefObj, isRace, dispatch } = useRace();
   const { deleteExistingCar } = useDeleteCar(id);
-  const { startAnimation, stopAnimation } = useCarAnimation();
+  const { startAnimation, stopAnimation, isAnimating } = useCarAnimation();
   const carRef = useRef<HTMLImageElement | null>(null);
   const flagRef = useRef<HTMLImageElement | null>(null);
   const handleStart = () => {
@@ -43,6 +44,7 @@ const useCarBlock = ({ id }: { id: number }) => {
     handleStop,
     handleRemove,
     handleSelectCar,
+    isAnimating,
     isRace,
   };
 };
