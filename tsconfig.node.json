@@ -19,7 +19,8 @@
     "@store/*": ["./store/*"],
     "@ui/*": ["./ui/*"],
     "@helpers/*": ["./helpers/*"],
-    "@services/*": ["./services/*"]
+    "@services/*": ["./services/*"],
+    "@context/*": ["src/context/*"]
   },
   "include": ["vite.config.ts"]
 }

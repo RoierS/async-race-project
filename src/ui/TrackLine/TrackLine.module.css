@@ -1,0 +1,9 @@
+.line {
+  border-bottom: 3px dashed #d4cbcb;
+}
+
+@media screen and (max-width: 680px) {
+  .line {
+    border-bottom: 2px dashed #d4cbcb;
+  }
+}

@@ -19,7 +19,8 @@
       "@interfaces/*": ["src/interfaces/*"],
       "@common/*": ["src/common/*"],
       "@helpers/*": ["src/helpers/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@context/*": ["src/context/*"]
     },
 
     /* Bundler mode */

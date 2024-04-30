@@ -1,17 +1,17 @@
 .pagination {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
   align-self: center;
   padding: 3px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   background: var(--form-block-bg-color);
   border-radius: 10px;
+  width: 100%;
 }
 
 .currentNumber {
-  font-family: "Something", serif;
   color: var(--color-light);
   font-size: 1.4em;
 }
@@ -19,4 +19,5 @@
 .carsCount,
 .pageNumber {
   color: var(--vanilla);
+  text-align: center;
 }

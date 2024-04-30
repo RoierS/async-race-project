@@ -1,27 +1,29 @@
+import useTotalCars from "@hooks/useTotalCars";
+import { Car } from "@interfaces/Car";
+import CarBlock from "@ui/CarBlock/CarBlock";
 import CarList from "@ui/CarList/CarList";
 import CreateCar from "@ui/CreateCar/CreateCar";
 import EditCar from "@ui/EditCar/EditCar";
 import ManageGarage from "@ui/ManageGarage/ManageGarage";
-import PageTitle from "@ui/PageTitle/PageTitle";
 import Pagination from "@ui/Pagination/Pagination";
 import RaceOperations from "@ui/RaceOperations/RaceOperations";
 
 import styles from "./Garage.module.css";
 
 function Garage() {
+  const { carsCount } = useTotalCars();
+
   return (
     <section className={styles.garage}>
-      <PageTitle title="Garage" />
-
       <ManageGarage>
         <CreateCar />
         <EditCar />
         <RaceOperations />
       </ManageGarage>
 
-      <Pagination />
+      <Pagination count={carsCount} />
 
-      <CarList />
+      <CarList render={(car: Car) => <CarBlock key={car.id} car={car} />} />
     </section>
   );
 }

@@ -1,36 +1,41 @@
-import { useState } from "react";
+import { FormEvent } from "react";
 
-import { defaultCarColor } from "@constants/constants";
+import useCreateCar from "@hooks/useCreateCar";
+import useCreateCarForm from "@hooks/useCreateCarForm";
 import Button from "@ui/Button/Button";
-
 import Input from "@ui/Input/Input";
 
 import styles from "./CreateCar.module.css";
 
 function CreateCar() {
-  const [name, setName] = useState("");
-  const [color, setColor] = useState(defaultCarColor);
+  const { createNewCar } = useCreateCar();
+  const {
+    name,
+    color,
+    isRace,
+    isSingleRace,
+    handleNameChange,
+    handleColorChange,
+    resetForm,
+  } = useCreateCarForm();
 
-  const handleClick = () => {
-    // ToDO : Add logic
+  const isDeactivate = isRace || !name || !color || isSingleRace;
+
+  const handleCreateCar = (e: FormEvent) => {
+    e.preventDefault();
+    createNewCar({ name, color, id: 0 }, {});
+    resetForm();
   };
-
   return (
-    <form className={styles.createCar}>
+    <form className={styles.createCar} onSubmit={handleCreateCar}>
       <Input
         type="text"
         placeholder="Car Name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={handleNameChange}
       />
-
-      <Input
-        type="color"
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
-      />
-
-      <Button type="button" onClick={handleClick} size="medium">
+      <Input type="color" value={color} onChange={handleColorChange} />
+      <Button type="submit" size="medium" disabled={isDeactivate}>
         Create
       </Button>
     </form>

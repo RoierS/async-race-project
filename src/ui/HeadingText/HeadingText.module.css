@@ -8,8 +8,17 @@
 
 .text {
   font-family: "Mostwasted", sans-serif;
-  font-size: 36px;
+  font-size: 26px;
   line-height: 1.2;
   color: var(--rich-black);
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 680px) {
+  .title {
+    font-size: 24px;
+  }
+  .text {
+    font-size: 18px;
+  }
 }

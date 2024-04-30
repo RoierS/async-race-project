@@ -1,0 +1,27 @@
+.cell,
+.cellImage {
+  padding: 10px 13px;
+  background: -webkit-linear-gradient(var(--color-light), var(--light-black));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.8em;
+}
+
+.row {
+  border-bottom: 2px solid var(--dark-cyan-1);
+  transition: background-color 0.3s ease-out;
+}
+
+.row:nth-of-type(odd) {
+  background-color: var(--garage-bg);
+}
+
+.row:hover {
+  background-color: var(--midnight-green);
+}
+
+.cellImage {
+  width: 80px;
+  height: 50px;
+}

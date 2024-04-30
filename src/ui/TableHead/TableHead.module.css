@@ -1,0 +1,32 @@
+.thead {
+  border-radius: 10px 10px 0 0;
+}
+
+.theadRaw {
+  background: var(--form-block-bg-color);
+  color: var(--color-light);
+  text-align: left;
+  border-radius: 10px 10px 0 0;
+}
+
+.theadCell,
+.theadCellSort {
+  padding: 10px 13px;
+}
+
+.theadCell:first-child {
+  border-radius: 10px 0 0 0;
+}
+
+.theadCellSort:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+.theadCellSort {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.theadCellSort:hover {
+  color: var(--light-black);
+}

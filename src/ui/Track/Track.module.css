@@ -1,0 +1,7 @@
+.track {
+  position: relative;
+  padding: 5px;
+  background: var(--track-bg-color);
+  box-shadow: var(--shadow-color);
+  border-radius: 5px;
+}

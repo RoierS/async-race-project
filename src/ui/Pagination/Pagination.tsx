@@ -1,28 +1,38 @@
+import { PAGE_SIZE, WINNERS_PAGE_SIZE } from "@constants/constants";
+import usePagination from "@hooks/usePagination";
 import Button from "@ui/Button/Button";
+
+import { useLocation, useSearchParams } from "react-router-dom";
 
 import styles from "./Pagination.module.css";
 
-function Pagination() {
-  const handleNextClick = () => {
-    // TODO
-  };
+function Pagination({ count }: { count: number }) {
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const isGarageView = location.pathname === "/garage";
 
-  const handlePrevClick = () => {
-    // TODO
-  };
+  const { handleNext, handlePrev } = usePagination(count);
 
   return (
     <div className={styles.pagination}>
-      <Button type="button" onClick={handlePrevClick}>
+      <Button onClick={() => handlePrev()} disabled={currentPage === 1}>
         Prev
       </Button>
       <p className={styles.pageNumber}>
-        Page: <span className={styles.currentNumber}> #1</span>
+        Page: <span className={styles.currentNumber}>#{currentPage}</span>
       </p>
       <p className={styles.carsCount}>
-        Garage: <span className={styles.currentNumber}>303</span>
+        {isGarageView ? "Garage" : "Winners"}:{" "}
+        <span className={styles.currentNumber}> {count}</span>
       </p>
-      <Button type="button" onClick={handleNextClick}>
+      <Button
+        onClick={() => handleNext()}
+        disabled={
+          currentPage >=
+          Math.ceil(count / (isGarageView ? PAGE_SIZE : WINNERS_PAGE_SIZE))
+        }
+      >
         Next
       </Button>
     </div>

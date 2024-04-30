@@ -1,4 +1,9 @@
 .winners {
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
   background: var(--garage-bg);
+  padding: 5px 15px 0;
 }

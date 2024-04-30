@@ -1,11 +1,16 @@
-import { HttpMethod, BASE_URL } from "@constants/constants";
+/* eslint-disable no-console */
+import { HttpMethod, BASE_URL, PAGE_SIZE } from "@constants/constants";
 import { Car } from "@interfaces/Car";
 
 import request from "./apiRequest";
 
-const CARS_PER_PAGE = 7;
-
-export async function getCars(page = 1, limit = CARS_PER_PAGE): Promise<Car[]> {
+export async function getCars({
+  page,
+  limit = PAGE_SIZE,
+}: {
+  page: number;
+  limit?: number;
+}): Promise<Car[]> {
   const data: Car[] = await request(`/garage?_page=${page}&_limit=${limit}`);
   return data;
 }
@@ -41,8 +46,51 @@ export async function getTotalCarCount(): Promise<number> {
 
     return totalCount;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Failed to get total car count:", error);
     throw error;
+  }
+}
+
+export async function startStopCarEngine(
+  carId: number,
+  status: "started" | "stopped",
+) {
+  const data = await request<{ velocity: number; distance: number }>(
+    `/engine?id=${carId}&status=${status}`,
+    HttpMethod.PATCH,
+  );
+  return data;
+}
+
+interface SwitchToDriveModeOutput {
+  success: boolean;
+  error?: string;
+}
+
+export async function switchToDriveMode(
+  carId: number,
+  signal?: AbortSignal,
+): Promise<SwitchToDriveModeOutput> {
+  try {
+    const response = await request<SwitchToDriveModeOutput>(
+      `/engine?id=${carId}&status=drive`,
+      HttpMethod.PATCH,
+      null,
+      signal,
+    );
+    return response;
+  } catch (error) {
+    if (error instanceof DOMException && error.name === "AbortError") {
+      console.log("Request was aborted");
+      return {
+        success: false,
+        error: "Request was aborted",
+      };
+    }
+    console.log("Car has been stopped suddenly. It's engine was broken down.");
+    return {
+      success: false,
+      error: "Car has been stopped suddenly. It's engine was broken down.",
+    };
   }
 }

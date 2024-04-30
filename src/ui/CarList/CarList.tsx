@@ -1,19 +1,14 @@
-import CarBlock from "@ui/CarBlock/CarBlock";
+import { ReactNode } from "react";
+
+import useCars from "@hooks/useCars";
+import { Car } from "@interfaces/Car";
 
 import styles from "./CarList.module.css";
 
-function CarList() {
-  return (
-    <div className={styles.carList}>
-      <CarBlock />
-      <CarBlock />
-      <CarBlock />
-      <CarBlock />
-      <CarBlock />
-      <CarBlock />
-      <CarBlock />
-    </div>
-  );
+function CarList({ render }: { render: (car: Car) => ReactNode }) {
+  const { cars } = useCars();
+
+  return <div className={styles.carList}>{cars?.map(render)}</div>;
 }
 
 export default CarList;

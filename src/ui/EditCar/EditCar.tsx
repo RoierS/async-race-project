@@ -1,36 +1,37 @@
-import { useState } from "react";
-
-import { defaultCarColor } from "@constants/constants";
+import useUpdateCar from "@hooks/useUpdateCar";
+import useUpdateCarForm from "@hooks/useUpdateCarForm";
 import Button from "@ui/Button/Button";
-
 import Input from "@ui/Input/Input";
 
 import styles from "./EditCar.module.css";
 
 function EditCar() {
-  const [name, setName] = useState("");
-  const [color, setColor] = useState(defaultCarColor);
+  const {
+    name,
+    color,
+    handleNameChange,
+    handleColorChange,
+    resetForm,
+    selectedCarId,
+  } = useUpdateCarForm();
+  const { updateExistingCar } = useUpdateCar();
 
-  const handleClick = () => {
-    // ToDO : Add logic
+  const handleUpdateCar = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (selectedCarId) {
+      updateExistingCar({
+        carId: selectedCarId,
+        car: { name, color, id: selectedCarId },
+      });
+    }
+    resetForm();
   };
 
   return (
-    <form className={styles.editCar}>
-      <Input
-        type="text"
-        placeholder="Car Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <Input
-        type="color"
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
-      />
-
-      <Button type="button" onClick={handleClick} size="medium">
+    <form className={styles.editCar} onSubmit={handleUpdateCar}>
+      <Input value={name} onChange={handleNameChange} />
+      <Input type="color" value={color} onChange={handleColorChange} />
+      <Button type="submit" size="medium" disabled={!selectedCarId}>
         Update
       </Button>
     </form>

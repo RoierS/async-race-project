@@ -10,15 +10,12 @@
   font-family: "Serpentine";
   src: url("./assets/fonts/Serpentine.ttf") format("truetype");
 }
-@font-face {
-  font-family: "Something";
-  src: url("./assets/fonts/Something.ttf") format("truetype");
-}
 
 :root {
   --color-light: rgb(242, 233, 228);
   --color-ligh-1: rgba(242, 233, 228, 0.534);
   --rich-black: rgb(0, 18, 25);
+  --light-black: rgb(46, 50, 52);
   --midnight-green: rgb(0, 95, 115);
   --midnight-green-1: rgba(0, 96, 115, 0.512);
   --dark-cyan: rgb(10, 147, 150);
@@ -115,7 +112,7 @@ body {
   font-weight: 400;
   min-height: 100vh;
   line-height: 1.5;
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 
 input,
