@@ -17,10 +17,9 @@ import styles from "./CarBlock.module.css";
 
 interface CarBlockProps {
   car: Car;
-  onSelectCar: (car: Car) => void;
 }
 
-function CarBlock({ car, onSelectCar }: CarBlockProps) {
+function CarBlock({ car }: CarBlockProps) {
   const { color = defaultCarColor, name, id } = car;
   const { carRefs, flagRefObj, isRace, dispatch } = useRace();
   const { deleteExistingCar } = useDeleteCar(id);
@@ -31,11 +30,29 @@ function CarBlock({ car, onSelectCar }: CarBlockProps) {
     dispatch({ type: ActionTypes.IS_SINGLE_RACE, payload: true });
     startAnimation(id);
   };
+
+  const updateInputState = (field: string, value: string) => {
+    dispatch({
+      type: ActionTypes.UPDATE_EDIT_INPUT,
+      payload: { field, value },
+    });
+  };
+
   const handleStop = () => {
     stopAnimation(id);
     dispatch({ type: ActionTypes.IS_SINGLE_RACE, payload: false });
   };
-  const handleRemove = () => deleteExistingCar(id);
+
+  const handleRemove = async () => {
+    dispatch({ type: ActionTypes.SELECT_CAR, payload: null });
+    updateInputState("name", "");
+    updateInputState("color", defaultCarColor);
+    deleteExistingCar(id);
+  };
+
+  const onSelectCar = (carToEdit: Car) => {
+    dispatch({ type: ActionTypes.SELECT_CAR, payload: carToEdit });
+  };
 
   useEffect(() => {
     const carRefsCurrent = carRefs.current;

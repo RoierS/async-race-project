@@ -37,7 +37,7 @@ type ViewType = "garagePage" | "winnersPage";
 
 type AppAction =
   | { type: ActionTypes.SET_PAGE; view: ViewType; page: number }
-  | { type: ActionTypes.SELECT_CAR; payload: Car }
+  | { type: ActionTypes.SELECT_CAR; payload: Car | null }
   | { type: ActionTypes.IS_RACE; payload: boolean }
   | { type: ActionTypes.IS_SINGLE_RACE; payload: boolean }
   | { type: ActionTypes.UPDATE_CREATE_INPUT; payload: IUpdateCreateInput }
