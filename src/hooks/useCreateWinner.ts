@@ -17,11 +17,11 @@ const useCreateWinner = () => {
         (winner) => winner.id === winnerData.id,
       );
 
-      if (existingWinner) {
+      if (existingWinner && existingWinner.wins) {
         const updatedWinner = {
           ...existingWinner,
-          wins: existingWinner.wins + 1,
-          time: Math.min(existingWinner.time, winnerData.time),
+          wins: (existingWinner.wins || 1) + 1,
+          time: Math.min(existingWinner.time!, winnerData.time!),
         };
 
         await updateWinner(existingWinner.id, updatedWinner);
