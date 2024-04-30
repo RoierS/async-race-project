@@ -1,6 +1,18 @@
 #### Score: 365 / 370
 #### Link: [ASYNC-RACE](https://async-race-most-wanted.netlify.app/)
 
+<div align='center'>
+  <img src="/public/logo-as.png" alt="logo" width="100" height="auto" />
+  <h1>ASYNC-RACE | Most Wanted</h1>
+  <p>
+  Single page application where user can manage a collection of cars, operate their engines, and showcase race statistics.
+  </p>
+  <div align='center'>
+    <img src="https://github.com/RoierS/async-race-project/assets/111195111/b585a143-bccd-48e7-bde2-01eb89c58c19" alt="imac app view" width="500px" height="auto" />
+  </div>
+</div>
+<br/>
+
 ## Checklist
 
 ## 🚀 UI Deployment
