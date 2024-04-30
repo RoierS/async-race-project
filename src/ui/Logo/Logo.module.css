@@ -1,4 +1,10 @@
 .logo {
-  height: 5.2rem;
+  height: 70px;
   vertical-align: middle;
+}
+
+@media screen and (max-width: 680px) {
+  .logo {
+    height: 50px;
+  }
 }

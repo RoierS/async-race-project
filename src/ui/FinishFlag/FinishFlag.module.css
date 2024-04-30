@@ -1,7 +1,15 @@
 .finishFlag {
   position: absolute;
-  top: 70%;
-  right: 190px;
-  width: 66px;
+  top: 32px;
+  right: 140px;
+  width: 50px;
   transform: translateY(-50%);
+}
+
+@media screen and (max-width: 680px) {
+  .finishFlag {
+    top: 25px;
+    right: 110px;
+    width: 34px;
+  }
 }

@@ -52,18 +52,6 @@ function CarBlock({ car, onSelectCar }: CarBlockProps) {
     <div className={styles.carBlock}>
       <CarRaceControls>
         <Button
-          onClick={() => onSelectCar(car)}
-          disabled={isAnimating[id] || isRace}
-        >
-          Select 👆
-        </Button>
-        <Button onClick={handleRemove} disabled={isAnimating[id] || isRace}>
-          Remove 🗑️
-        </Button>
-        <p className={styles.carName}>{name}</p>
-      </CarRaceControls>
-      <Track>
-        <Button
           onClick={handleStart}
           purpose="start"
           disabled={isAnimating[id] || isRace}
@@ -77,6 +65,18 @@ function CarBlock({ car, onSelectCar }: CarBlockProps) {
         >
           Stop
         </Button>
+        <Button
+          onClick={() => onSelectCar(car)}
+          disabled={isAnimating[id] || isRace}
+        >
+          👆
+        </Button>
+        <Button onClick={handleRemove} disabled={isAnimating[id] || isRace}>
+          🗑️
+        </Button>
+        <p className={styles.carName}>{name}</p>
+      </CarRaceControls>
+      <Track>
         <CarImageWrapper carImageRef={carRef} color={color} />
         <FinishFlag flagRef={flagRef} />
         <TrackLine />

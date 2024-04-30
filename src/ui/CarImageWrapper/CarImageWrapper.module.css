@@ -2,7 +2,17 @@
   display: block;
   transform: scaleX(-1);
   width: 100%;
-  max-width: 200px;
+  max-width: 150px;
   position: relative;
-  top: 10px;
+  top: 2px;
+}
+
+.carImage svg {
+  vertical-align: bottom;
+}
+
+@media screen and (max-width: 680px) {
+  .carImage {
+    max-width: 100px;
+  }
 }

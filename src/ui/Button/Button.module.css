@@ -13,12 +13,13 @@
 .button {
   display: inline-block;
   cursor: pointer;
-  font-size: 17px;
-  padding: 7px 25px;
+  font-size: 0.8rem;
+  padding: 3px 10px;
   text-decoration: none;
   box-shadow: var(--shadow-color);
   background: var(--button-background-color);
   border-radius: 15px;
+  min-width: fit-content;
 }
 
 .button:hover:not(:disabled):not(.start, .race) {
@@ -31,13 +32,12 @@
 }
 
 .button.medium {
-  min-width: 126px;
+  min-width: 90px;
 }
 
 .start {
   color: var(--color-light);
   text-shadow: 0px 0.5px 0px var(--color-ligh-1);
-  margin-right: 15px;
   border-radius: 1rem;
   animation: spinAnimation 2.5s infinite linear paused;
   background:
