@@ -50,7 +50,9 @@ function CarBlock({ car }: CarBlockProps) {
     deleteExistingCar(id);
   };
 
-  const onSelectCar = (carToEdit: Car) => {
+  const handleSelectCar = (carToEdit: Car) => {
+    updateInputState("name", car.name);
+    updateInputState("color", car.color);
     dispatch({ type: ActionTypes.SELECT_CAR, payload: carToEdit });
   };
 
@@ -83,7 +85,7 @@ function CarBlock({ car }: CarBlockProps) {
           Stop
         </Button>
         <Button
-          onClick={() => onSelectCar(car)}
+          onClick={() => handleSelectCar(car)}
           disabled={isAnimating[id] || isRace}
         >
           👆
