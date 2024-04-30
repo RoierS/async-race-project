@@ -15,6 +15,8 @@ export enum ActionTypes {
   SET_PAGE,
   IS_RACE,
   IS_SINGLE_RACE,
+  UPDATE_CREATE_INPUT,
+  UPDATE_EDIT_INPUT,
 }
 
 export enum HttpMethod {

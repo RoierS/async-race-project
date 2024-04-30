@@ -19,17 +19,18 @@ function EditCar({ selectedCar, setSelectedCar }: EditCarProps) {
   const [color, setColor] = useState(defaultCarColor);
   const [selectedCarId, setSelectedCarId] = useState<number | null>(null);
   const { updateExistingCar } = useUpdateCar();
-
   const handleUpdateCar = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedCarId) {
-      updateExistingCar({ carId: selectedCarId, car: { name, color } });
+      updateExistingCar({
+        carId: selectedCarId,
+        car: { name, color, id: selectedCarId },
+      });
     }
     setColor(defaultCarColor);
     setName("");
     setSelectedCarId(null);
   };
-
   useEffect(() => {
     if (selectedCar) {
       setName(selectedCar.name ?? "");
@@ -38,7 +39,6 @@ function EditCar({ selectedCar, setSelectedCar }: EditCarProps) {
     }
     return () => setSelectedCar(null);
   }, [selectedCar, setSelectedCar]);
-
   return (
     <form className={styles.editCar} onSubmit={handleUpdateCar}>
       <Input value={name} onChange={(e) => setName(e.target.value)} />
