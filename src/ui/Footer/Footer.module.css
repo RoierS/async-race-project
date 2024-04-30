@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 15px;
+  gap: 20px;
+  background: var(--garage-bg);
+  color: var(--vanilla);
+  max-width: 1280px;
+  width: 100%;
+}
