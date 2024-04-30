@@ -33,9 +33,9 @@ interface IUpdateCreateInput {
   value: string;
 }
 
-type ViewType = "garagePage" | "winnersPage";
+export type ViewType = "garagePage" | "winnersPage";
 
-type AppAction =
+export type AppAction =
   | { type: ActionTypes.SET_PAGE; view: ViewType; page: number }
   | { type: ActionTypes.SELECT_CAR; payload: Car | null }
   | { type: ActionTypes.IS_RACE; payload: boolean }
@@ -123,54 +123,37 @@ const initialState = {
     color: defaultCarColor,
   },
 };
-
-// eslint-disable-next-line max-lines-per-function
 function AppProvider({ children }: { children: ReactNode }) {
-  const [
-    {
-      isRace,
-      isSingleRace,
-      selectedCar,
-      garagePage,
-      winnersPage,
-      editCarInputState,
-      createCarInputState,
-    },
-    dispatch,
-  ] = useReducer(appReducer, initialState);
-
+  const [state, dispatch] = useReducer(appReducer, initialState);
   const carRefs = useRef<
     Record<string, MutableRefObject<HTMLImageElement | null>>
   >({});
-
   const flagRefObj = useRef<
     Record<string, MutableRefObject<HTMLImageElement | null>>
   >({});
-
   const value = useMemo(
     () => ({
-      isRace,
-      isSingleRace,
-      selectedCar,
-      garagePage,
-      winnersPage,
-      dispatch,
+      isRace: state.isRace,
+      isSingleRace: state.isSingleRace,
+      selectedCar: state.selectedCar,
+      garagePage: state.garagePage,
+      winnersPage: state.winnersPage,
       carRefs,
       flagRefObj,
-      editCarInputState,
-      createCarInputState,
+      editCarInputState: state.editCarInputState,
+      createCarInputState: state.createCarInputState,
+      dispatch,
     }),
     [
-      createCarInputState,
-      editCarInputState,
-      garagePage,
-      isRace,
-      isSingleRace,
-      selectedCar,
-      winnersPage,
+      state.createCarInputState,
+      state.editCarInputState,
+      state.garagePage,
+      state.isRace,
+      state.isSingleRace,
+      state.selectedCar,
+      state.winnersPage,
     ],
   );
-
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
 

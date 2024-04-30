@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import { ActionTypes } from "@constants/constants";
 import { useRace } from "@context/AppContext";
 import useCreateRandomCars from "@hooks/useCreateRandomCars";
@@ -12,19 +11,11 @@ function RaceOperations() {
   const { handleRace, handleRaceReset } = useRaceOperations();
   const { createRandomCars, isPending } = useCreateRandomCars();
   const handleClick = (button: string, actionFn: () => void) => {
-    if (button === "race") {
-      dispatch({
-        type: ActionTypes.IS_RACE,
-        payload: true,
-      });
-    }
+    if (button === "race")
+      dispatch({ type: ActionTypes.IS_RACE, payload: true });
+    if (button === "reset")
+      dispatch({ type: ActionTypes.IS_RACE, payload: false });
 
-    if (button === "reset") {
-      dispatch({
-        type: ActionTypes.IS_RACE,
-        payload: false,
-      });
-    }
     actionFn();
   };
 

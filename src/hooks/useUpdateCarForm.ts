@@ -3,7 +3,6 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { ActionTypes, defaultCarColor } from "@constants/constants";
 import { useRace } from "@context/AppContext";
 
-// eslint-disable-next-line max-lines-per-function
 const useUpdateCarForm = () => {
   const { dispatch, editCarInputState, selectedCar } = useRace();
   const [name, setName] = useState(editCarInputState.name);
@@ -15,21 +14,13 @@ const useUpdateCarForm = () => {
     setSelectedCarId(null);
     dispatch({ type: ActionTypes.SELECT_CAR, payload: null });
   };
-  const updateInputState = (field: string, value: string) => {
-    dispatch({
-      type: ActionTypes.UPDATE_EDIT_INPUT,
-      payload: { field, value },
-    });
-  };
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newName = e.target.value;
     setName(newName);
-    updateInputState("name", newName);
   };
   const handleColorChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newColor = e.target.value;
     setColor(newColor);
-    updateInputState("color", newColor);
   };
   useEffect(() => {
     if (selectedCar) {
