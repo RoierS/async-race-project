@@ -1,6 +1,5 @@
 import useTotalWinners from "@hooks/useTotalWinners";
 
-import PageTitle from "@ui/PageTitle/PageTitle";
 import Pagination from "@ui/Pagination/Pagination";
 import WinnersTable from "@ui/WinnersTable/WinnersTable";
 
@@ -11,10 +10,7 @@ function Winners() {
 
   return (
     <section className={styles.winners}>
-      <PageTitle title="Winners" />
-
       <Pagination count={winnersCount} />
-
       <WinnersTable />
     </section>
   );

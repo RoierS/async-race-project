@@ -7,7 +7,6 @@ import CarList from "@ui/CarList/CarList";
 import CreateCar from "@ui/CreateCar/CreateCar";
 import EditCar from "@ui/EditCar/EditCar";
 import ManageGarage from "@ui/ManageGarage/ManageGarage";
-import PageTitle from "@ui/PageTitle/PageTitle";
 import Pagination from "@ui/Pagination/Pagination";
 import RaceOperations from "@ui/RaceOperations/RaceOperations";
 
@@ -23,8 +22,6 @@ function Garage() {
 
   return (
     <section className={styles.garage}>
-      <PageTitle title="Garage" />
-
       <ManageGarage>
         <CreateCar />
         <EditCar selectedCar={selectedCar} setSelectedCar={setSelectedCar} />
