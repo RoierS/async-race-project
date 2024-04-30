@@ -41,8 +41,8 @@ const useCarAnimation = () => {
       animationRequestIds.current[id] = requestAnimationFrame(step);
 
       const response = await switchToDriveMode(id, controller.current.signal);
-      if (!response.success) {
-        cancelAnimationFrame(animationRequestIds.current[id]);
+      if (!response.success && id) {
+        cancelAnimationFrame(Number(animationRequestIds.current[id]));
         return FAILED;
       }
       return animationTime;
@@ -57,7 +57,7 @@ const useCarAnimation = () => {
     setIsAnimating((prev) => ({ ...prev, [id]: false }));
     controller.current.abort();
     await startStopCarEngine(id, "stopped");
-    cancelAnimationFrame(animationRequestIds.current[id]);
+    cancelAnimationFrame(Number(animationRequestIds.current[id]));
     resetCarPosition({ currentCar, currentFlag });
     controller.current = new AbortController();
   };
