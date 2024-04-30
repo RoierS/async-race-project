@@ -1,7 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import { ActionTypes } from "@constants/constants";
 import { useRace } from "@context/AppContext";
-import useCreateRandomCars from "@hooks/useCreateRabdomCars";
+import useCreateRandomCars from "@hooks/useCreateRandomCars";
 import useRaceOperations from "@hooks/useRaceOperations";
 import Button from "@ui/Button/Button";
 
