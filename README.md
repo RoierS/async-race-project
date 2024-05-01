@@ -1,5 +1,5 @@
 #### Score: 365 / 370
-#### Link: [ASYNC-RACE](https://async-race-most-wanted.netlify.app/)
+#### Deploy: [ASYNC-RACE](https://async-race-most-wanted.netlify.app/)
 
 <div align='center'>
   <img src="/public/logo-as.png" alt="logo" width="100" height="auto" />
@@ -12,6 +12,8 @@
   </div>
 </div>
 <br/>
+
+**Note:** You should clone the [server repository](https://github.com/mikhama/async-race-api.git) and keep the server running to use this application.
 
 ## Checklist
 
@@ -116,4 +118,56 @@
   - (**-30**) Major bug (implemented functionality works but breaks down after certain manipulations, with unexpected errors in the browser's console).
   - (**-10**) Minor bug (implemented functionality works but behaves inconsistently after certain manipulations, such as a button not becoming enabled after changing some state, with no errors in the browser's console).
   - **Note:** If you repeatedly press the "start engine button" then the "stop engine button" or the "start race button" then the "reset race button" and see a "404" or "429" error, this is not considered a bug.
+
+## 🛠️ Tech Stack
+
+- **⚛️ React**
+- **🛣️ React Router**
+- **🔍 React Query**
+- **📝 Typescript**
+- **🎨 CSS Modules**
+- **🔥 React Hot Toast**
+- **🧹 ESlint (airbnb)**
+- **💅 Prettier**
+- **🚀 Vite**
+- **🐶 Husky**
+
+
+## 📜 Scripts
+
+***dev:*** Run the development server using Vite.
+```bash
+npm run dev
+```
+
+***build:*** Build the project using TypeScript (tsc) and Vite.
+```bash
+npm run build
+```
+
+***lint:*** Lint the project using ESLint.
+```bash
+npm run lint
+```
+
+***preview:*** Preview the production build using Vite.
+```bash
+npm run preview
+```
+
+***format:*** Format the code using Prettier.
+
+```bash
+npm run format
+```
+
+***format:*** Checking issues using Prettier.
+
+```bash
+npm run ci:format
+```
+
+
+## 👥 Contributors
+👨‍💼 [RoierS](https://github.com/RoierS) - [iermoliuk.roman@gmail.com](mailto:iermoliuk.roman@gmail.com)
 
