@@ -1,4 +1,5 @@
 #### Score: 365 / 370
+
 #### Deploy: [ASYNC-RACE](https://async-race-most-wanted.netlify.app/)
 
 <div align='center'>
@@ -96,7 +97,7 @@
 
 ## 📏 Code Organization and Efficiency (15 points)
 
-- [x-] **Function Modularization (10 points):** Code should be organized into small, clearly named functions with specific purposes. Each function should not exceed 40 lines, reflecting strong typing and avoiding the use of magic numbers or strings.(**some functions more then 40 lines 5/10**) 
+- [x-] **Function Modularization (10 points):** Code should be organized into small, clearly named functions with specific purposes. Each function should not exceed 40 lines, reflecting strong typing and avoiding the use of magic numbers or strings.(**some functions more then 40 lines 5/10**)
 - [x] **Code Duplication and Magic Numbers (5 points):** Minimize code duplication and maintain readability by avoiding the use of magic numbers or strings throughout the codebase.
 
 ## 🎨 Prettier and ESLint Configuration (10 points)
@@ -132,42 +133,44 @@
 - **🚀 Vite**
 - **🐶 Husky**
 
-
 ## 📜 Scripts
 
-***dev:*** Run the development server using Vite.
+**_dev:_** Run the development server using Vite.
+
 ```bash
 npm run dev
 ```
 
-***build:*** Build the project using TypeScript (tsc) and Vite.
+**_build:_** Build the project using TypeScript (tsc) and Vite.
+
 ```bash
 npm run build
 ```
 
-***lint:*** Lint the project using ESLint.
+**_lint:_** Lint the project using ESLint.
+
 ```bash
 npm run lint
 ```
 
-***preview:*** Preview the production build using Vite.
+**_preview:_** Preview the production build using Vite.
+
 ```bash
 npm run preview
 ```
 
-***format:*** Format the code using Prettier.
+**_format:_** Format the code using Prettier.
 
 ```bash
 npm run format
 ```
 
-***format:*** Checking issues using Prettier.
+**_format:_** Checking issues using Prettier.
 
 ```bash
 npm run ci:format
 ```
 
-
 ## 👥 Contributors
-👨‍💼 [RoierS](https://github.com/RoierS) - [iermoliuk.roman@gmail.com](mailto:iermoliuk.roman@gmail.com)
 
+👨‍💼 [RoierS](https://github.com/RoierS) - [iermoliuk.roman@gmail.com](mailto:iermoliuk.roman@gmail.com)
